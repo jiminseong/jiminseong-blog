@@ -3,9 +3,6 @@ title: "예시글입니다."
 excerpt: "웹 개발에서 동적 라우팅과 정적 생성은 중요한 개념입니다. 이 글에서는 두 가지 접근 방식의 차이점과 각각의 장점에 대해 알아봅니다."
 coverImage: "/assets/blog/dynamic-routing/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
-author:
-  name: 지민성
-  picture: "/assets/blog/authors/jiminseongProfile.jpeg"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---
