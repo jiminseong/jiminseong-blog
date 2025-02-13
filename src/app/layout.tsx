@@ -8,8 +8,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `지민성 블로그`,
-  description: `지민성의 블로그.`,
+  title: `Jiminseong Blog.`,
+  description: `Jiminseong Blog.`,
 };
 
 export default function RootLayout({
