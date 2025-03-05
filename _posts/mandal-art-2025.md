@@ -1,10 +1,10 @@
 ---
 title: "2025년 뒤늦은 계획, 만다라트"
 excerpt: "최근에 취업 준비를 하면서 얻은 성찰을 바탕으로 만다라트를 그려봤어요. \n"
-coverImage: "/assets/blog/mandal-art/cover.png"
+coverImage: "/assets/blog/mandal-art-2025/cover.png"
 date: "2025-03-05"
 ogImage:
-  url: "/assets/blog/mandal-art/cover.png"
+  url: "/assets/blog/mandal-art-2025/cover.png"
 ---
 
 ## 만다라트?
