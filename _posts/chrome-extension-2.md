@@ -2,7 +2,7 @@
 title: "Chrome Extension - 2"
 excerpt: "SafeComment 프론트에서 부터 서버까지 생각 보다 내용이 많지 않아, 하나에 정리했어요"
 coverImage: "/assets/blog/chrome-extension-2/cover.png"
-date: "2025-03-31"
+date: "2025-04-14"
 ogImage:
   url: "/assets/blog/chrome-extension-2/cover.png"
 ---
