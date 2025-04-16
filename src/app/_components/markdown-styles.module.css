@@ -14,10 +14,23 @@
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-8 mb-4 leading-snug font-bold;
 }
 .markdown img {
   @apply my-4 mx-auto;
   max-width: 100%;
   height: auto;
+}
+
+.markdown table {
+  @apply w-full table-auto text-left text-sm my-6 border-collapse;
+}
+
+.markdown thead {
+  @apply dark:bg-gray-800;
+}
+
+.markdown th,
+.markdown td {
+  @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
 }
