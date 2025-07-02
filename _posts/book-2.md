@@ -2,7 +2,7 @@
 title: "돈, 뜨겁게 사랑하고 차갑게 다루어라를 읽고"
 excerpt: "돈, 뜨겁게 사랑하고 차갑게 다루어라를 읽고, 재테크에 대한 통찰을 얻었어요. \n"
 coverImage: "/assets/blog/book-2/cover.png"
-date: "2025-06-05"
+date: "2025-06-18"
 ogImage:
   url: "/assets/blog/book-2/cover.png"
 ---
