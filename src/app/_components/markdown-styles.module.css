@@ -34,3 +34,7 @@
 .markdown td {
   @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
 }
+
+.markdown a {
+  @apply text-blue-500 hover:underline;
+}
