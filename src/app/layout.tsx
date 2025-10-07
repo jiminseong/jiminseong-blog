@@ -31,7 +31,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={cn(inter.className, "dark:bg-black dark:text-slate-300")}>
+      <body className={cn(inter.className, "dark:bg-black dark:text-slate-300 leading-normal")}>
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
       </body>
