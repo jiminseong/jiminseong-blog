@@ -23,10 +23,10 @@ export default async function CategoryPage(props: Params) {
         <Header />
         <section>
           <h1 className="text-xl md:text-2xl font-semibold mb-6">
-            {CATEGORY_LABEL[category]} posts
+            {CATEGORY_LABEL[category]} 글
           </h1>
           {posts.length === 0 ? (
-            <p className="text-sm text-slate-500">No posts in this category yet.</p>
+            <p className="text-sm text-slate-500">이 카테고리의 글이 아직 없습니다.</p>
           ) : (
             <ul className="space-y-4">
               {posts.map((post) => (
@@ -73,4 +73,3 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     },
   };
 }
-
