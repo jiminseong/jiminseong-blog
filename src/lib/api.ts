@@ -1,4 +1,5 @@
 import { Post } from "@/interfaces/post";
+import { CATEGORY_SLUGS } from "@/lib/constants";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
@@ -14,6 +15,15 @@ export function getPostBySlug(slug: string) {
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
+
+  // Validate category if provided; keep optional to avoid breaking existing posts
+  const category = (data as any).category as string | undefined;
+  if (category && !CATEGORY_SLUGS.includes(category as any)) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Invalid category "${category}" in ${realSlug}.md. Allowed: ${CATEGORY_SLUGS.join(", ")}`
+    );
+  }
 
   return { ...data, slug: realSlug, content } as Post;
 }
