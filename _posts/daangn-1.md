@@ -5,6 +5,7 @@ coverImage: "/assets/blog/daangn-1/cover.png"
 date: "2025-10-07"
 ogImage:
   url: "/assets/blog/daangn-1/cover.png"
+category: retrospect
 ---
 
 

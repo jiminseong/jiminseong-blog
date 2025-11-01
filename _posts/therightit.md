@@ -5,6 +5,7 @@ coverImage: "/assets/blog/therightit/cover.png"
 date: "2025-09-02"
 ogImage:
   url: "/assets/blog/therightit/cover.png"
+category: book
 ---
 
 아이디어 불패의 법칙, 사실 원제목은 ‘될 놈’즉 **“the right it”** 이라고 한다. 이를 읽고 그동안 아이디어 7개를 모아 모두 가설을 여기에 세워보려한다. 

@@ -5,6 +5,7 @@ coverImage: "/assets/blog/mandal-art-2025/cover.png"
 date: "2025-03-05"
 ogImage:
   url: "/assets/blog/mandal-art-2025/cover.png"
+category: retrospect
 ---
 
 ## 만다라트?

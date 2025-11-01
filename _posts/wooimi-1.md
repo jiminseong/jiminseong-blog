@@ -5,6 +5,7 @@ coverImage: "/assets/blog/wooimi-1/cover.png"
 date: "2025-04-16"
 ogImage:
   url: "/assets/blog/wooimi-1/cover.png"
+category: product
 ---
 
 ### **선택 가능한 사항**

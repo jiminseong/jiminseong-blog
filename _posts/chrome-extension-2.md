@@ -5,6 +5,7 @@ coverImage: "/assets/blog/chrome-extension-2/cover.png"
 date: "2025-04-14"
 ogImage:
   url: "/assets/blog/chrome-extension-2/cover.png"
+category: product
 ---
 
 
@@ -102,4 +103,3 @@ SafeComment-server
 - 크롬익스텐션을 개발하고 영상 형태로 공모전에 제출하게 되었는데, 개발에 비중을 두고, 혼자 진행하다보니 영상에 신경을 못쓴 것 같아 아쉽기도 했습니다! 그리고 영어로 제작했어야 했는데, 영어 실력이 부족해 GPT를 많이 활용한 점도 아쉬웠네요.
   
 - 그래도, 크롬익스텐션을 개발하면서 JS가 또 한번 좋아지게되었습니다. 다양한 범용성이 있다는 점에서 말이죠, 그래서 다음에는 **electron app** 을 한번 만들어볼까 합니다.
-

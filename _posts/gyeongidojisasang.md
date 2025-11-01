@@ -5,6 +5,7 @@ coverImage: "/assets/blog/gyeongidojisasang/cover.png"
 date: "2025-08-19"
 ogImage:
   url: "/assets/blog/gyeongidojisasang/cover.png"
+category: retrospect
 ---
 이 이야기는 우이미로 아쉽지만 **경기도지사상**을 받게 된 이야기다. 처음에는 음 뭐랄까, 여자친구와 함께 나가는 첫 공모전인 만큼, 그리고 새로운 자원봉사 해커톤이라는 만큼 잘하고 싶다는 생각이 막연했다. 늘 그랬듯 목표는 우승이었다(비록 힘들더라도).
 

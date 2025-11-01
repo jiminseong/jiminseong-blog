@@ -5,6 +5,7 @@ coverImage: "/assets/blog/firstmonth/cover.png"
 date: "2025-09-01"
 ogImage:
   url: "/assets/blog/gyeongidojisasang/cover.png"
+category: retrospect
 ---
 출근을 했다. 원래는 출근 1주일 뒤에 글을 쓰려 했으나, 한달만에 글을 쓰게 되었다. 드디어, 약 100개의 기업을 지원했던 끝에 프론트엔드 개발자로 출근을 하게 되었다. 사실 정규직은 아니고 ICT 인턴십 이라는 프로그램이다. 전국 단위의 장기 현장 실습이라고 생각하면 된다. 그래도 필요한 학점 이수, 장학금, 급여까지 지급 되는 좋은 프로그램이니 합격한 소식에 너무 기뻤다. 
 

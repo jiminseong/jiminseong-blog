@@ -3,6 +3,7 @@ title: "Chrome Extension - 1"
 excerpt: "유튜브 악플 신고를 돕는 크롬 익스텐션을 만들기 위해, 공식 문서를 토대로 학습한 내용이에요. \n"
 coverImage: "/assets/blog/chrome-extension-1/cover.png"
 date: "2025-03-31"
+category: product
 ogImage:
   url: "/assets/blog/chrome-extension-1/cover.png"
 ---
