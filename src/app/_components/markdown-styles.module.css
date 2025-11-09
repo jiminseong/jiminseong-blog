@@ -9,6 +9,10 @@
   @apply my-6;
 }
 
+.markdown h1 {
+  @apply text-4xl mt-16 mb-6 leading-snug font-extrabold;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
@@ -16,6 +20,66 @@
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug font-bold;
 }
+
+.markdown h4 {
+  @apply text-xl mt-6 mb-3 leading-snug font-semibold;
+}
+
+.markdown h5 {
+  @apply text-lg mt-4 mb-2 leading-snug font-medium;
+}
+
+.markdown h6 {
+  @apply text-base mt-4 mb-2 leading-snug font-medium;
+}
+
+.markdown ul {
+  @apply list-disc pl-6;
+}
+
+.markdown ol {
+  @apply list-decimal pl-6;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown ul ul,
+.markdown ol ol,
+.markdown ul ol,
+.markdown ol ul {
+  @apply mt-2 mb-2;
+}
+
+.markdown code {
+  @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-gray-800 dark:text-gray-200;
+}
+
+.markdown pre {
+  @apply bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.markdown pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400;
+}
+
+.markdown strong {
+  @apply font-bold;
+}
+
+.markdown em {
+  @apply italic;
+}
+
+.markdown hr {
+  @apply my-8 border-t border-gray-300 dark:border-gray-700;
+}
+
 .markdown img {
   @apply my-4 mx-auto;
   max-width: 100%;
@@ -37,4 +101,8 @@
 
 .markdown a {
   @apply text-blue-500 hover:underline;
+}
+
+.markdown input[type="checkbox"] {
+  @apply mr-2;
 }
