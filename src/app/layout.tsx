@@ -6,6 +6,7 @@ import { ThemeSwitcher } from "./_components/theme-switcher";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: `Jiminseong Blog.`,
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "dark:bg-black dark:text-slate-300 leading-normal")}>
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
