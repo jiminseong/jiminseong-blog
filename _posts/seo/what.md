@@ -1,10 +1,10 @@
 ---
 title: "SEO가 뭘까?"
 excerpt: "회사 홈페이지를 개선하고자, 그리고 개인 프로젝트에도 SEO를 적용해보고자 SEO에 대해 공부한 내용을 정리했습니다."
-coverImage: "/assets/blog/what-seo/cover.png"
+coverImage: "/assets/blog/seo/what/cover.png"
 date: "2025-11-23"
 ogImage:
-  url: "/assets/blog/what-seo/cover.png"
+  url: "/assets/blog/seo/what/cover.png"
 category: frontend
 ---
 
@@ -15,7 +15,7 @@ category: frontend
 - 이 처럼 SEO에 관해서는 업데이트가  끊임없이 진행되기에 잘 살펴보고 실효성을 생각해 적용하는 것이 좋다.
 - Next.js 공식 학습 사이트에서 아래 이미지와 같이 다른 주요 개념과 다루고 있듯이 SEO가 웹 생태계에서 얼마나 중요한 지 알 수 있다. (하지만 아직 Page Router 기반으로 설명되어있어, 추가 정보는 https://nextjs.org/docs/app 를 같이 참고하는 것을 추천한다.)
     
-    ![image.png](/assets/blog/what-seo/seo-nextjs-learn.png)
+    ![image.png](/assets/blog/seo/what/seo-nextjs-learn.png)
     
 - SEO는 검색 엔진 최적화 즉, Search Engine Optimization의 약자
 - SEO의 목표는 **검색 엔진 결과 에서 순위를 높이는 전략 수립**
