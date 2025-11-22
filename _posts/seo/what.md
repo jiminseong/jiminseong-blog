@@ -10,7 +10,7 @@ category: frontend
 
 # SEO란?
 
-- https://nextjs.org/learn/seo 를 바탕으로 학습 하고 적용르 할 예정이다.
+- https://nextjs.org/learn/seo 를 바탕으로 학습 하고 적용을 할 예정이다.
 - 추가로, https://developers.google.com/search?hl=ko 를 통해서 가장 최신의 구글 SEO 관련되 정보를 얻을 수 있다.
 - 이 처럼 SEO에 관해서는 업데이트가  끊임없이 진행되기에 잘 살펴보고 실효성을 생각해 적용하는 것이 좋다.
 - Next.js 공식 학습 사이트에서 아래 이미지와 같이 다른 주요 개념과 다루고 있듯이 SEO가 웹 생태계에서 얼마나 중요한 지 알 수 있다. (하지만 아직 Page Router 기반으로 설명되어있어, 추가 정보는 https://nextjs.org/docs/app 를 같이 참고하는 것을 추천한다.)
