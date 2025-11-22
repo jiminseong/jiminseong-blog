@@ -6,8 +6,17 @@ import { join } from "path";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
+function collectSlugs(dir: string, prefix = ""): string[] {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory()) return collectSlugs(join(dir, entry.name), `${prefix}${entry.name}/`);
+    if (entry.isFile() && entry.name.endsWith(".md"))
+      return [`${prefix}${entry.name.replace(/\.md$/, "")}`];
+    return [];
+  });
+}
+
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return collectSlugs(postsDirectory);
 }
 
 export function getPostBySlug(slug: string) {

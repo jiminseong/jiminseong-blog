@@ -11,7 +11,9 @@ import Comments from "@/app/_components/comments";
 
 export default async function Post(props: Params) {
   const params = await props.params;
-  const post = getPostBySlug(params.slug);
+  const slugParam = params.slug;
+  const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+  const post = slug ? getPostBySlug(slug) : null;
 
   if (!post) {
     return notFound();
@@ -35,13 +37,15 @@ export default async function Post(props: Params) {
 
 type Params = {
   params: Promise<{
-    slug: string;
+    slug: string | string[];
   }>;
 };
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
-  const post = getPostBySlug(params.slug);
+  const slugParam = params.slug;
+  const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+  const post = slug ? getPostBySlug(slug) : null;
 
   if (!post) {
     return notFound();
@@ -62,6 +66,6 @@ export async function generateStaticParams() {
   const posts = getAllPosts();
 
   return posts.map((post) => ({
-    slug: post.slug,
+    slug: post.slug.split("/"),
   }));
 }
