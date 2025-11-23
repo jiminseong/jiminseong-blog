@@ -7,6 +7,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: `Jiminseong Blog.`,
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
