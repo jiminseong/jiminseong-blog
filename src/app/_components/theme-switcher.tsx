@@ -51,21 +51,17 @@ export const NoFOUCScript = (storageKey: string) => {
   media.addEventListener("change", window.updateDOM);
 };
 
-let updateDOM: () => void;
-
 /**
  * Switch button to quickly toggle user preference.
  */
 const Switch = () => {
   const [mode, setMode] = useState<ColorSchemePreference>(
     () =>
-      ((typeof localStorage !== "undefined" && localStorage.getItem(STORAGE_KEY)) ??
+      ((typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY)) ??
         "system") as ColorSchemePreference
   );
 
   useEffect(() => {
-    // store global functions to local variables to avoid any interference
-    updateDOM = window.updateDOM;
     /** Sync the tabs */
     addEventListener("storage", (e: StorageEvent): void => {
       e.key === STORAGE_KEY && setMode(e.newValue as ColorSchemePreference);
@@ -74,7 +70,7 @@ const Switch = () => {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, mode);
-    updateDOM();
+    if (window.updateDOM) window.updateDOM();
   }, [mode]);
 
   /** toggle mode */
