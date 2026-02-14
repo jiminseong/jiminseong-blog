@@ -12,6 +12,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   title: `Jiminseong Blog.`,
   description: `Jiminseong Blog.`,
+  verification: {
+    other: {
+      "naver-site-verification": "82ac83774374c6ad4755b9812d5c98167788819c",
+    },
+  },
 };
 
 export default function RootLayout({
