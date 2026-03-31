@@ -1,10 +1,10 @@
 ---
 title: "우리는 이별을 미루기로 했다. 뭘로 개발 할까?"
 excerpt: "경기 볼런톤이라는 행사에서, 친환경 커플앱을 주제로 결선에 진출하게 되었어요. MVP앱 개발이 필요한 상황에서, 다양한 점을 고려해서 어떤 기술을 선택할지 고민해보았습니다."
-coverImage: "/assets/blog/wooimi-1/cover.png"
+coverImage: "/assets/blog/wooimi/tech-stack/cover.png"
 date: "2025-04-16"
 ogImage:
-  url: "/assets/blog/wooimi-1/cover.png"
+  url: "/assets/blog/wooimi/tech-stack/cover.png"
 category: product
 ---
 

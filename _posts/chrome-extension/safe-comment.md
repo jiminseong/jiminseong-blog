@@ -1,10 +1,10 @@
 ---
 title: "Chrome Extension - 2"
 excerpt: "SafeComment 프론트에서 부터 서버까지 생각 보다 내용이 많지 않아, 하나에 정리했어요"
-coverImage: "/assets/blog/chrome-extension-2/cover.png"
+coverImage: "/assets/blog/chrome-extension/safe-comment/cover.png"
 date: "2025-04-14"
 ogImage:
-  url: "/assets/blog/chrome-extension-2/cover.png"
+  url: "/assets/blog/chrome-extension/safe-comment/cover.png"
 category: product
 ---
 
@@ -14,28 +14,28 @@ category: product
 ### 결과물
 
 <p align="center">
-  <img src="/assets/blog/chrome-extension-2/ui-1.png" width="50%" /><br/>
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-1.png" width="50%" /><br/>
   우선 처음 화면에서 "신고 하기", "선플 달기" 를 클릭 할 수 있어요
 </p>
 
 <p align="center">
-  <img src="/assets/blog/chrome-extension-2/ui-2.png" width="50%" />
-  <img src="/assets/blog/chrome-extension-2/ui-2-1.png" width="50%" /><br/>
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-2.png" width="50%" />
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-2-1.png" width="50%" /><br/>
   "신고 하기"를 누르면 해당 댓글이 인식되고, 블러처리가 됩니다.
 </p>
 
 <p align="center">
-  <img src="/assets/blog/chrome-extension-2/ui-3.png" width="50%" /><br/>
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-3.png" width="50%" /><br/>
   그리고 "위로 받기 (우측 상단)"을 누르면 악플을 본 시청자를 위로해주는 글을 AI가 작성해줍니다.
 </p>
 
 <p align="center">
-  <img src="/assets/blog/chrome-extension-2/ui-4.png" width="50%" /><br/>
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-4.png" width="50%" /><br/>
   신고하기를 통해서, 해당 유저 멘션아이디, 유튜브 영상 정보, 댓글 정보를 DB에 신고합니다.
 </p>
 
 <p align="center">
-  <img src="/assets/blog/chrome-extension-2/ui-5.png" width="50%" /><br/>
+  <img src="/assets/blog/chrome-extension/safe-comment/ui-5.png" width="50%" /><br/>
   선플 달기를 통해서는, 영상 내용에 맞게, 내 심정을 더 긍정적으로 표현해줘요. 이를 통해서 표현이 서툰 사람은 도움을 받을 수 있습니다!
 </p>
 

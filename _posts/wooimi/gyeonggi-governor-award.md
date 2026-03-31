@@ -1,10 +1,10 @@
 ---
 title: "우이미로 경기도지사상을 받았다!"
 excerpt: "경기 볼런톤이라는 행사에서, 친환경 커플앱을 주제로 결선에서 최종 우승을 하게 되었어요, 느낀 바를 작성해보았습니다."
-coverImage: "/assets/blog/gyeongidojisasang/cover.png"
+coverImage: "/assets/blog/wooimi/gyeonggi-governor-award/cover.png"
 date: "2025-08-19"
 ogImage:
-  url: "/assets/blog/gyeongidojisasang/cover.png"
+  url: "/assets/blog/wooimi/gyeonggi-governor-award/cover.png"
 category: retrospect
 ---
 이 이야기는 우이미로 아쉽지만 **경기도지사상**을 받게 된 이야기다. 처음에는 음 뭐랄까, 꽤 규모가 큰 공모전인 만큼, 그리고 새로운 자원봉사 해커톤이라는 만큼 잘하고 싶다는 생각이 막연했다. 늘 그랬듯 목표는 우승이었다(비록 힘들더라도).

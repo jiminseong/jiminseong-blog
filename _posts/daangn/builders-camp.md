@@ -1,10 +1,10 @@
 ---
 title: "당근 빌더스 캠프 회고"
 excerpt: "당근 빌더스 캠프에 참여하고 느낀점입니다. 늦었습니다.."
-coverImage: "/assets/blog/daangn-1/cover.png"
+coverImage: "/assets/blog/daangn/builders-camp/cover.png"
 date: "2025-10-07"
 ogImage:
-  url: "/assets/blog/daangn-1/cover.png"
+  url: "/assets/blog/daangn/builders-camp/cover.png"
 category: retrospect
 ---
 

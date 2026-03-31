@@ -1,10 +1,10 @@
 ---
 title: "“아이디어 불패의 법칙” 을 읽고 내 아이디어를 봤어요"
 excerpt: "아이디어 불패의 법칙을 읽고 핵심으로 제 아이디어들을 회고한 내용입니다!"
-coverImage: "/assets/blog/therightit/cover.png"
+coverImage: "/assets/blog/the-right-it/ideas-review/cover.png"
 date: "2025-09-02"
 ogImage:
-  url: "/assets/blog/therightit/cover.png"
+  url: "/assets/blog/the-right-it/ideas-review/cover.png"
 category: book
 ---
 
@@ -54,4 +54,3 @@ category: book
 
 ### 결론
 개인적으로, 책안에서 **출퇴근 버스 안에서 AI 강의 듣는 아이템** 이 기억에 남는다. 왜냐하면, 최초의 가설에서 크게 벗어나지 않으면서, 적당한 변수를 조정하며(ex 출근은 시간을 아끼려 하는 사람이 있지만, 퇴근 시간에는 다들 피곤하다 등) 가설을 검증하는 과정이 고스란히 전달되었기 때문이다.
-나 또한 이런 과정으로 가설을 검증해봐야겠다 우선 10월 31일 내로 **당사모**에 대한 프리토타이핑 검증을 해볼 예정이다.
