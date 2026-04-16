@@ -52,16 +52,88 @@
   @apply mt-2 mb-2;
 }
 
-.markdown code {
-  @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-gray-800 dark:text-gray-200;
+.markdown :not(pre) > code {
+  @apply px-[0.4em] py-[0.15em] rounded-md text-[0.875em] font-mono border;
+  background-color: #f3f4f6;
+  color: #9d174d;
+  border-color: #e5e7eb;
+  word-break: break-word;
+}
+
+:global(.dark) .markdown :not(pre) > code {
+  background-color: #1f2937;
+  color: #f9a8d4;
+  border-color: #374151;
 }
 
 .markdown pre {
-  @apply bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto my-6;
+  @apply p-4 rounded-lg overflow-x-auto my-6 text-sm leading-relaxed border;
+  background-color: #f6f8fa;
+  border-color: #e5e7eb;
+}
+
+:global(.dark) .markdown pre {
+  background-color: #22272e;
+  border-color: #373e47;
 }
 
 .markdown pre code {
-  @apply bg-transparent p-0 text-sm;
+  @apply bg-transparent p-0 border-0 font-mono;
+  display: grid;
+  counter-reset: line;
+}
+
+.markdown pre code :global(span) {
+  color: var(--shiki-light);
+}
+
+:global(.dark) .markdown pre code :global(span) {
+  color: var(--shiki-dark);
+}
+
+.markdown pre code :global(.line) {
+  @apply px-4 -mx-4;
+  min-height: 1.5em;
+}
+
+.markdown pre code :global(.line.highlighted) {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 2px solid #3b82f6;
+}
+
+:global(.dark) .markdown pre code :global(.line.highlighted) {
+  background-color: rgba(96, 165, 250, 0.15);
+}
+
+.markdown pre code :global([data-highlighted-chars]) {
+  background-color: rgba(59, 130, 246, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.1em 0.25em;
+}
+
+.markdown :global(figure[data-rehype-pretty-code-figure]) {
+  @apply my-6;
+}
+
+.markdown :global(figure[data-rehype-pretty-code-figure]) pre {
+  @apply my-0;
+}
+
+.markdown :global([data-rehype-pretty-code-title]) {
+  @apply px-4 py-2 text-xs font-mono rounded-t-lg border border-b-0;
+  background-color: #eceff3;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+:global(.dark) .markdown :global([data-rehype-pretty-code-title]) {
+  background-color: #2d333b;
+  color: #adbac7;
+  border-color: #373e47;
+}
+
+.markdown :global([data-rehype-pretty-code-title]) + pre {
+  @apply rounded-t-none;
 }
 
 .markdown blockquote {
