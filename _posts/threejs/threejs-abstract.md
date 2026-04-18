@@ -22,7 +22,7 @@ category: frontend
    - `npm install` -> `npm run dev`로 실행
 2. **`index.html` 수정**
   - `<div id="app"></div>` 삭제
-  - `<div id="gpuCanvas"></div>` 추가
+  - `<canvas id="gpuCanvas"></canvas>` 추가
     - 해당 캔버스에서 **3D 그래픽이 렌더링** 될 예정
 3. **`style.css` 수정**
    - 기존 코드 모두 삭제
