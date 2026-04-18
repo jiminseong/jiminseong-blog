@@ -560,3 +560,9 @@ main();
 <strong>`WebGPU`에 대한 `Three.js`의 추상화</strong>는 **복잡한 `WebGPU API`를 간단하고 직관적인 인터페이스로 감싸서** 개발자가 3D 그래픽을 쉽게 렌더링할 수 있도록 도와준다.<br/> 하지만 <strong>`WebGPU`를 통해 기초부터 만들어보면서 내부를 이해</strong>한다면, 수학적인 내용과 쉐이더에 대해 더 알면 알수록,더 멋진 효과와 장면을 만들 수 있다고 합니다!
 
 #### 추가) `Perspective` vs `Projection` 의 차이점?
+강의에서 Perspective 변환과 Projection 변환이 같은 행렬을 가리키는 것처럼 쓰이는 것 같은데, 차이점은?
+- 답변 : 
+  - Projection 변환은 3d를 모니터에 표시하기 위해 2d로 변환하는 것을 의미
+  - 이 projection 변환에는 2가지가 있는데 perspective 변환과 orthographic 변환
+  - 각각은 원근감이 있고 없고에 대한 차이
+
