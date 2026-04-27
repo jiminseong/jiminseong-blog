@@ -40,7 +40,7 @@ export default function RootLayout({
       </head>
       <body className={cn(inter.className, "dark:bg-black dark:text-slate-300 leading-normal")}>
         <ThemeScript />
-        <div className="min-h-screen">{children}</div>
+        <div className="min-h-screen pb-24 md:pb-32">{children}</div>
         <Analytics />
         <SpeedInsights />
       </body>
