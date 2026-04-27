@@ -10,7 +10,10 @@ export const CATEGORIES = [
   { slug: "book", label: "독서" },
   { slug: "product", label: "프로덕트" },
   { slug: "retrospect", label: "회고" },
-  { slug: "computer-science", label: "컴퓨터 과학" },
+  { slug: "data", label: "데이터" },
+  { slug: "marketing", label: "마케팅" },
+  { slug: "planning", label: "기획" },
+  { slug: "movie", label: "영화" },
 ] as const;
 
 export const CATEGORY_SLUGS: Category[] = CATEGORIES.map((c) => c.slug) as Category[];
@@ -20,5 +23,13 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   book: "독서",
   product: "프로덕트",
   retrospect: "회고",
-  "computer-science": "컴퓨터 과학",
+  data: "데이터",
+  marketing: "마케팅",
+  planning: "기획",
+  movie: "영화",
+};
+
+export const SOCIAL_LINKS = {
+  github: "https://github.com/jiminseong",
+  linkedin: "https://www.linkedin.com/in/jiminseong",
 };

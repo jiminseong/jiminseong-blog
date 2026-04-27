@@ -3,7 +3,6 @@ import { HeroPost } from "@/app/_components/hero-post";
 import Header from "@/app/_components/header";
 import { MoreStories } from "@/app/_components/more-stories";
 import { getAllPosts } from "@/lib/api";
-import { Profile } from "./_components/profile";
 
 export default function Index() {
   const allPosts = getAllPosts();
@@ -27,11 +26,6 @@ export default function Index() {
 
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
-      <Profile
-        name="지민성"
-        githubUrl="https://github.com/jiminseong"
-        profileImage="/assets/blog/author/profile.png"
-      />
     </main>
   );
 }

@@ -3,7 +3,10 @@ export type Category =
   | "book"
   | "product"
   | "retrospect"
-  | "computer-science";
+  | "data"
+  | "marketing"
+  | "planning"
+  | "movie";
 
 export type Post = {
   slug: string;
@@ -16,6 +19,7 @@ export type Post = {
   };
   content: string;
   preview?: boolean;
+  draft?: boolean;
   // Optional during transition; recommend making required once all posts updated
   category?: Category;
 };
