@@ -29,7 +29,7 @@ export default async function Post(props: Params) {
           <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
           <PostBody content={content} />
         </article>
-        <Comments />
+        <Comments slug={slug} />
       </Container>
     </main>
   );

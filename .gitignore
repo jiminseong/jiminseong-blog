@@ -32,6 +32,13 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# supabase (CLI 로컬 캐시/임시 파일 — 마이그레이션 SQL은 추적)
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+supabase/seed.sql
+supabase/config.toml.local
+
 # vercel
 .vercel
 
