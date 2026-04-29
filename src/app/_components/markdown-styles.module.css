@@ -1,5 +1,10 @@
 .markdown {
-  @apply text-lg leading-relaxed;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  letter-spacing: -0.006em;
+  color: var(--fg);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .markdown p,
@@ -11,18 +16,22 @@
 
 .markdown h1 {
   @apply text-4xl mt-16 mb-6 leading-snug font-extrabold;
+  letter-spacing: -0.025em;
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply text-3xl mt-12 mb-4 leading-snug font-bold;
+  letter-spacing: -0.022em;
 }
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug font-bold;
+  letter-spacing: -0.018em;
 }
 
 .markdown h4 {
   @apply text-xl mt-6 mb-3 leading-snug font-semibold;
+  letter-spacing: -0.014em;
 }
 
 .markdown h5 {
@@ -53,28 +62,18 @@
 }
 
 .markdown :not(pre) > code {
-  @apply px-[0.4em] py-[0.15em] rounded-md text-[0.875em] font-mono border;
-  background-color: #f3f4f6;
-  color: #9d174d;
-  border-color: #e5e7eb;
+  @apply px-[0.4em] py-[0.15em] rounded-md text-[0.875em] font-mono;
+  background-color: var(--bg-elev);
+  color: var(--accent);
+  border: 1px solid var(--border);
   word-break: break-word;
 }
 
-:global(.dark) .markdown :not(pre) > code {
-  background-color: #1f2937;
-  color: #f9a8d4;
-  border-color: #374151;
-}
-
 .markdown pre {
-  @apply p-4 rounded-lg overflow-x-auto my-6 text-sm leading-relaxed border;
-  background-color: #f6f8fa;
-  border-color: #e5e7eb;
-}
-
-:global(.dark) .markdown pre {
-  background-color: #22272e;
-  border-color: #373e47;
+  @apply p-4 rounded-lg overflow-x-auto my-6 text-sm border;
+  line-height: 1.7;
+  background-color: var(--bg-elev);
+  border-color: var(--border);
 }
 
 .markdown pre code {
@@ -97,16 +96,12 @@
 }
 
 .markdown pre code :global(.line.highlighted) {
-  background-color: rgba(59, 130, 246, 0.1);
-  border-left: 2px solid #3b82f6;
-}
-
-:global(.dark) .markdown pre code :global(.line.highlighted) {
-  background-color: rgba(96, 165, 250, 0.15);
+  background-color: var(--accent-soft);
+  border-left: 2px solid var(--accent);
 }
 
 .markdown pre code :global([data-highlighted-chars]) {
-  background-color: rgba(59, 130, 246, 0.15);
+  background-color: var(--accent-soft);
   border-radius: 0.25rem;
   padding: 0.1em 0.25em;
 }
@@ -121,15 +116,9 @@
 
 .markdown :global([data-rehype-pretty-code-title]) {
   @apply px-4 py-2 text-xs font-mono rounded-t-lg border border-b-0;
-  background-color: #eceff3;
-  color: #4b5563;
-  border-color: #e5e7eb;
-}
-
-:global(.dark) .markdown :global([data-rehype-pretty-code-title]) {
-  background-color: #2d333b;
-  color: #adbac7;
-  border-color: #373e47;
+  background-color: var(--bg-elev);
+  color: var(--fg-muted);
+  border-color: var(--border);
 }
 
 .markdown :global([data-rehype-pretty-code-title]) + pre {
@@ -137,11 +126,14 @@
 }
 
 .markdown blockquote {
-  @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-white;
+  @apply pl-4 italic;
+  border-left: 3px solid var(--border-strong);
+  color: var(--fg-muted);
 }
 
 .markdown strong {
   @apply font-bold;
+  color: var(--fg);
 }
 
 .markdown em {
@@ -149,11 +141,12 @@
 }
 
 .markdown hr {
-  @apply my-8 border-t border-gray-300 dark:border-gray-700;
+  @apply my-8;
+  border-top: 1px solid var(--border);
 }
 
 .markdown img {
-  @apply my-4 mx-auto;
+  @apply my-4 mx-auto rounded-md;
   max-width: 100%;
   height: auto;
 }
@@ -163,16 +156,24 @@
 }
 
 .markdown thead {
-  @apply dark:bg-gray-800;
+  background-color: var(--bg-elev);
 }
 
 .markdown th,
 .markdown td {
-  @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
+  @apply px-4 py-2;
+  border: 1px solid var(--border);
 }
 
 .markdown a {
-  @apply text-blue-500 hover:underline;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: border-color 0.15s ease;
+}
+
+.markdown a:hover {
+  border-bottom-color: var(--accent);
 }
 
 .markdown input[type="checkbox"] {

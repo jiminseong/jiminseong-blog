@@ -37,8 +37,8 @@ const Header = () => {
               href={href}
               className={
                 active
-                  ? "px-3 py-1 rounded-full border border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-black"
-                  : "px-3 py-1 rounded-full border border-slate-300/40 hover:border-slate-500/70 hover:bg-slate-200/30 dark:hover:bg-slate-800/40"
+                  ? "px-3 py-1 rounded-full border border-slate-700/80 bg-slate-700 text-slate-50 dark:border-slate-300/60 dark:bg-slate-200 dark:text-slate-900"
+                  : "px-3 py-1 rounded-full border border-slate-300/50 text-slate-600 hover:border-slate-400/70 hover:bg-slate-200/40 dark:border-slate-700/60 dark:text-slate-400 dark:hover:border-slate-600/60 dark:hover:bg-slate-800/40"
               }
             >
               {c.label}
