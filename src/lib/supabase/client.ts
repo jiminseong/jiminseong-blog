@@ -3,13 +3,27 @@
 import { createBrowserClient } from "@supabase/ssr";
 import type { Database } from "./types";
 
-let _client: ReturnType<typeof createBrowserClient<Database>> | null = null;
+type BrowserClient = ReturnType<typeof createBrowserClient<Database>>;
 
-export function getSupabaseBrowserClient() {
+let _client: BrowserClient | null = null;
+let _warned = false;
+
+export function getSupabaseBrowserClient(): BrowserClient | null {
   if (_client) return _client;
-  _client = createBrowserClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !anon) {
+    if (!_warned && typeof window !== "undefined") {
+      _warned = true;
+      console.warn(
+        "[supabase] NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY missing — comments disabled.",
+      );
+    }
+    return null;
+  }
+
+  _client = createBrowserClient<Database>(url, anon);
   return _client;
 }

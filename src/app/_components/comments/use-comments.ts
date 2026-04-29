@@ -28,6 +28,7 @@ const initialState: State = {
 async function fetchRepliesFor(slug: string, parentIds: string[]) {
   if (parentIds.length === 0) return [];
   const supabase = getSupabaseBrowserClient();
+  if (!supabase) return [];
   const { data, error } = await supabase
     .from("comments")
     .select("*")
@@ -55,6 +56,15 @@ export function useComments(slug: string) {
   useEffect(() => {
     let cancelled = false;
     const supabase = getSupabaseBrowserClient();
+
+    if (!supabase) {
+      setState({
+        ...initialState,
+        loading: false,
+        error: "댓글 기능을 사용할 수 없습니다.",
+      });
+      return;
+    }
 
     setState({ ...initialState });
 
@@ -117,6 +127,7 @@ export function useComments(slug: string) {
     setState((s) => ({ ...s, loadingMore: true }));
     try {
       const supabase = getSupabaseBrowserClient();
+      if (!supabase) throw new Error("댓글 기능을 사용할 수 없습니다.");
       const start = cur.topLevel.length;
       const end = start + PAGE_SIZE - 1;
 
@@ -153,6 +164,7 @@ export function useComments(slug: string) {
   const addComment = useCallback(
     async (payload: AddCommentInput) => {
       const supabase = getSupabaseBrowserClient();
+      if (!supabase) throw new Error("댓글 기능을 사용할 수 없습니다.");
       const base =
         payload.kind === "anonymous"
           ? {
@@ -206,6 +218,7 @@ export function useComments(slug: string) {
 
   const deleteComment = useCallback(async (id: string, parentId?: string | null) => {
     const supabase = getSupabaseBrowserClient();
+    if (!supabase) throw new Error("댓글 기능을 사용할 수 없습니다.");
     const prev = stateRef.current;
 
     setState((s) => {

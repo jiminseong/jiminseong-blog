@@ -39,7 +39,9 @@ export function CommentForm({ user, onSubmit, parentId, onCancel }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   const handleSignOut = async () => {
-    await getSupabaseBrowserClient().auth.signOut();
+    const supabase = getSupabaseBrowserClient();
+    if (!supabase) return;
+    await supabase.auth.signOut();
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

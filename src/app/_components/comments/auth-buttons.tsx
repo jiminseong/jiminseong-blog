@@ -61,6 +61,7 @@ export function AuthButtons() {
 
   const handleClick = async (provider: Provider) => {
     const supabase = getSupabaseBrowserClient();
+    if (!supabase) return;
     const next = encodeURIComponent(window.location.pathname);
     await supabase.auth.signInWithOAuth({
       provider,

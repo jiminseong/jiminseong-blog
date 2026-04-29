@@ -35,6 +35,11 @@ export function useSession(): SessionState {
 
   useEffect(() => {
     const supabase = getSupabaseBrowserClient();
+    if (!supabase) {
+      setState((s) => ({ ...s, loading: false }));
+      return;
+    }
+
     let cancelled = false;
 
     supabase.auth.getSession().then(({ data }) => {
