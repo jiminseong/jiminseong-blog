@@ -12,20 +12,20 @@ const PAGES = [
   { href: "/resume", label: "이력서" },
 ];
 
-const PageNav = ({ pathname }: { pathname: string }) => {
+const PageDock = ({ pathname }: { pathname: string }) => {
   const isActive = (href: string) =>
     href === "/" ? !PAGES.slice(1).some((p) => pathname.startsWith(p.href)) : pathname.startsWith(href);
 
   return (
-    <nav className="flex items-center rounded-full border border-slate-300/50 dark:border-slate-700/60 p-0.5 text-xs md:text-sm">
+    <nav className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center rounded-full border border-slate-300/60 dark:border-slate-700/70 bg-[var(--bg-elev)]/90 backdrop-blur px-1 py-1 text-xs shadow-sm">
       {PAGES.map((page) => (
         <Link
           key={page.href}
           href={page.href}
           className={
             isActive(page.href)
-              ? "px-2.5 md:px-3 py-1 rounded-full bg-slate-700 text-slate-50 dark:bg-slate-200 dark:text-slate-900"
-              : "px-2.5 md:px-3 py-1 rounded-full text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
+              ? "px-3 py-1 rounded-full bg-slate-700 text-slate-50 dark:bg-slate-200 dark:text-slate-900"
+              : "px-3 py-1 rounded-full text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
           }
         >
           {page.label}
@@ -40,23 +40,23 @@ const Header = () => {
 
   return (
     <div className="mt-8 mb-12">
-      <div className="flex items-center justify-between gap-x-4 gap-y-3 flex-wrap">
+      <div className="flex items-center justify-between gap-4">
         <h2 className="text-xl md:text-2xl font-bold tracking-tight leading-tight">
           <Link href="/" className="hover:underline">
             Jiminseong Blog.
           </Link>
         </h2>
-        <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-end">
+        <div className="flex items-center gap-3 md:gap-4">
           <Profile
             name="지민성"
             profileImage="/assets/blog/author/profile.png"
             githubUrl={SOCIAL_LINKS.github}
             linkedinUrl={SOCIAL_LINKS.linkedin}
           />
-          <PageNav pathname={pathname} />
           <ThemeSwitcher />
         </div>
       </div>
+      <PageDock pathname={pathname} />
       {!PAGES.slice(1).some((p) => pathname.startsWith(p.href)) && (
       <nav className="mt-5 flex flex-wrap gap-2 text-sm">
         {CATEGORIES.map((c) => {

@@ -37,34 +37,17 @@ function ExternalLink({
 }
 
 function SectionTitle({
-  eyebrow,
-  eyebrowClass,
   caption,
   children,
 }: {
-  eyebrow: string;
-  eyebrowClass: string;
   caption?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-6">
-      <p className={`text-xs font-semibold tracking-widest uppercase mb-1.5 ${eyebrowClass}`}>
-        {eyebrow}
-      </p>
-      <div className="flex flex-wrap items-baseline gap-2">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{children}</h2>
-        {caption && <span className="text-sm text-slate-500 dark:text-slate-400">{caption}</span>}
-      </div>
+    <div className="mb-6 flex flex-wrap items-baseline gap-2">
+      <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{children}</h2>
+      {caption && <span className="text-sm text-slate-500 dark:text-slate-400">{caption}</span>}
     </div>
-  );
-}
-
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-sm text-violet-700 dark:text-violet-300">
-      {children}
-    </span>
   );
 }
 
@@ -272,89 +255,58 @@ const HUMANER_CARDS: WorkCard[] = [
 
 type Award = {
   title: string;
-  rank: string;
-  rankClass: string;
   detail: string;
   desc: string;
 };
 
-const AWARD_RANK = {
-  gold: "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-400",
-  bronze: "border-sky-500/40 bg-sky-500/10 text-sky-700 dark:text-sky-400",
-  violet: "border-violet-500/40 bg-violet-500/10 text-violet-700 dark:text-violet-300",
-  carrot: "border-orange-500/40 bg-orange-500/10 text-orange-600 dark:text-orange-400",
-};
-
 const AWARDS: Award[] = [
   {
-    title: "GDG Busan Build with AI Hackathon",
-    rank: "1위",
-    rankClass: AWARD_RANK.gold,
+    title: "GDG Busan Build with AI Hackathon 1위",
     detail: "86명 중 · 2026.04 · 개인",
     desc: "심사 기준을 역산해 역방향으로 가설을 세우고, Claude Code Agent Teams로 기획부터 발표까지 전 과정을 단독 수행.",
   },
   {
-    title: "경기 볼런톤 경기도지사상",
-    rank: "1위",
-    rankClass: AWARD_RANK.gold,
+    title: "경기 볼런톤 경기도지사상 1위",
     detail: "16팀 80명 중 · 팀장",
     desc: "문제정의·프로모션 설계·협찬 유치(minop, Jerrybag 등)·발표 3회 주도. 서비스 wooimi.com 운영.",
   },
   {
-    title: "제천트래블리그 제천시장상",
-    rank: "3위",
-    rankClass: AWARD_RANK.bronze,
+    title: "제천트래블리그 3위 · 제천시장상",
     detail: "100팀 중 · 개인 · 8개월",
     desc: "지역 관광 도우미 앱을 기획·개발해 제천시장상 수상. OpenAI API 활용.",
   },
   {
-    title: "2025 Daangn Builder's Camp",
-    rank: "수료",
-    rankClass: AWARD_RANK.carrot,
+    title: "2025 Daangn Builder's Camp 수료",
     detail: "당근 주관",
     desc: "동네 기반 서비스 LocalPing을 기획·개발.",
   },
   {
-    title: "JUST DO IT 2024",
-    rank: "최우수",
-    rankClass: AWARD_RANK.violet,
+    title: "JUST DO IT 2024 최우수",
     detail: "78명 중 · 개인",
     desc: "부모님 고깃집의 전자메뉴판을 Flutter로 제작.",
   },
   {
-    title: "무한태그 #21",
-    rank: "1위",
-    rankClass: AWARD_RANK.gold,
+    title: "무한태그 #21 1위",
     detail: "39명 중",
     desc: "SafeComment 크롬 익스텐션 개발, 크롬 웹스토어 출시.",
   },
   {
-    title: "AI와 100인의 용사들",
-    rank: "1위",
-    rankClass: AWARD_RANK.gold,
+    title: "AI와 100인의 용사들 1위",
     detail: "25팀 중",
     desc: "참여자 100명 투표 1위.",
   },
 ];
 
-const STAGE = {
-  live: "border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-  prep: "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-400",
-  ing: "border-violet-500/40 bg-violet-500/10 text-violet-700 dark:text-violet-300",
-};
-
 type Product = {
   name: string;
   tagline: string;
-  stage: { label: string; className: string };
   rows: { label: string; content: React.ReactNode }[];
 };
 
 const PRODUCTS: Product[] = [
   {
     name: "공일",
-    tagline: "대학생 공모전 정보 플랫폼",
-    stage: { label: "운영 중", className: STAGE.live },
+    tagline: "대학생 공모전 정보 플랫폼 · 운영 중",
     rows: [
       {
         label: "자동화",
@@ -373,8 +325,7 @@ const PRODUCTS: Product[] = [
   },
   {
     name: "도파민프리",
-    tagline: "습관 끊기 라이브 타이머 앱",
-    stage: { label: "출시 준비", className: STAGE.prep },
+    tagline: "습관 끊기 라이브 타이머 앱 · 출시 준비",
     rows: [
       {
         label: "자동화",
@@ -392,8 +343,7 @@ const PRODUCTS: Product[] = [
   },
   {
     name: "손쉬운 투두",
-    tagline: "AIM 모노레포에서 분리한 두 번째 앱",
-    stage: { label: "출시 준비", className: STAGE.prep },
+    tagline: "AIM 모노레포에서 분리한 두 번째 앱 · 출시 준비",
     rows: [
       {
         label: "자동화",
@@ -412,8 +362,7 @@ const PRODUCTS: Product[] = [
   },
   {
     name: "우정파괴봇",
-    tagline: "카카오톡 그룹채팅 심리 게임",
-    stage: { label: "운영 중", className: STAGE.live },
+    tagline: "카카오톡 그룹채팅 심리 게임 · 운영 중",
     rows: [
       {
         label: "기술",
@@ -450,27 +399,15 @@ export default function Portfolio() {
 
           {/* 2. 대표 프로덕트 */}
           <section className="mb-20">
-            <SectionTitle
-              eyebrow="대표 프로덕트"
-              eyebrowClass="text-violet-600 dark:text-violet-400"
-              caption="프로젝트 AIM에서 피벗"
-            >
-              손쉬운 운동기록
-            </SectionTitle>
-            <p className="mb-4">
+            <SectionTitle caption="프로젝트 AIM에서 피벗">손쉬운 운동기록</SectionTitle>
+            <p className="mb-2">
               헬스 운동일지 앱. App Store에 출시해 운영 중이며, 기획·디자인·개발·운영을 혼자
               담당한다.
             </p>
-            <div className="flex flex-wrap gap-2 mb-6">
-              <Badge>App Store 출시</Badge>
-              <Badge>실사용자 운영 중</Badge>
-              <Badge>
-                <b>295개</b> 운동 카탈로그
-              </Badge>
-              <Badge>
-                <b>6개</b> 언어 지원
-              </Badge>
-            </div>
+            <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
+              App Store 출시 · 실사용자 운영 중 · <b>295개</b> 운동 카탈로그 · <b>6개</b> 언어
+              지원
+            </p>
             <div className="grid gap-4">
               <Card>
                 <h3 className="font-semibold mb-3 text-[15px]">
@@ -564,13 +501,7 @@ export default function Portfolio() {
 
           {/* 3. 실무 경험 */}
           <section className="mb-20">
-            <SectionTitle
-              eyebrow="실무 경험"
-              eyebrowClass="text-sky-600 dark:text-sky-400"
-              caption="프론트엔드 개발 인턴 · 2025.08~12"
-            >
-              휴머너
-            </SectionTitle>
+            <SectionTitle caption="프론트엔드 개발 인턴 · 2025.08~12">휴머너</SectionTitle>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
               AI 포토부스 키오스크 스타트업.
             </p>
@@ -599,26 +530,11 @@ export default function Portfolio() {
 
           {/* 4. 수상 하이라이트 */}
           <section className="mb-20">
-            <p className="text-xs font-semibold tracking-widest uppercase mb-1.5 text-amber-600 dark:text-amber-400">
-              수상
-            </p>
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight">수상 이력</h2>
-              <span className="px-3 py-1 rounded-full border border-amber-500/40 bg-amber-500/10 text-sm text-amber-700 dark:text-amber-400">
-                <b>30+</b> 도전 · <b>25</b> 수상
-              </span>
-            </div>
+            <SectionTitle caption="30+ 도전 · 25 수상">수상 이력</SectionTitle>
             <div className="grid gap-4 sm:grid-cols-2">
               {AWARDS.map((award) => (
                 <Card key={award.title}>
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-semibold leading-snug">{award.title}</h3>
-                    <span
-                      className={`shrink-0 px-2.5 py-0.5 rounded-full border text-xs font-semibold ${award.rankClass}`}
-                    >
-                      {award.rank}
-                    </span>
-                  </div>
+                  <h3 className="font-semibold leading-snug">{award.title}</h3>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 mb-2">
                     {award.detail}
                   </p>
@@ -630,23 +546,11 @@ export default function Portfolio() {
 
           {/* 5. 프로덕트 & 활동 */}
           <section className="mb-20">
-            <SectionTitle
-              eyebrow="프로덕트 & 활동"
-              eyebrowClass="text-emerald-600 dark:text-emerald-400"
-            >
-              그 외 만들고 운영하는 것들
-            </SectionTitle>
+            <SectionTitle>그 외 만들고 운영하는 것들</SectionTitle>
             <div className="grid gap-4 sm:grid-cols-2">
               {PRODUCTS.map((product) => (
                 <Card key={product.name}>
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-semibold leading-snug">{product.name}</h3>
-                    <span
-                      className={`shrink-0 px-2.5 py-0.5 rounded-full border text-xs font-semibold ${product.stage.className}`}
-                    >
-                      {product.stage.label}
-                    </span>
-                  </div>
+                  <h3 className="font-semibold leading-snug">{product.name}</h3>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 mb-3">
                     {product.tagline}
                   </p>
