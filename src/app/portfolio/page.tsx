@@ -271,8 +271,13 @@ const AWARDS: Award[] = [
     desc: "문제정의·프로모션 설계·협찬 유치(minop, Jerrybag 등)·발표 3회 주도. 서비스 wooimi.com 운영.",
   },
   {
+    title: "GDG Daejeon Build with AI Hackathon 3위",
+    detail: "53명 중 · 2026.05 · 개인",
+    desc: "'1인 가구' 주제 4시간 단독 참가. 가족 일상 공유 앱 '우일아'를 기획·개발, Design·Frontend·Backend·Presentation 역할의 Claude Code 에이전트를 병렬 운영.",
+  },
+  {
     title: "제천트래블리그 3위 · 제천시장상",
-    detail: "100팀 중 · 개인 · 8개월",
+    detail: "100팀 중 · 2024.11 · 개인 · 8개월",
     desc: "지역 관광 도우미 앱을 기획·개발해 제천시장상 수상. OpenAI API 활용.",
   },
   {
@@ -292,8 +297,13 @@ const AWARDS: Award[] = [
   },
   {
     title: "AI와 100인의 용사들 1위",
-    detail: "25팀 중",
+    detail: "25팀 중 · 2024.06",
     desc: "참여자 100명 투표 1위.",
+  },
+  {
+    title: "반지하 활용방안 아이디어 시민 공모전 금상",
+    detail: "서울주택도시공사 · 2023.12 · 개인",
+    desc: "반지하 공간을 대학생과 청소년을 잇는 코딩 교육 공간으로 바꾸는 '다가치 코딩 교육센터'를 기획.",
   },
 ];
 
