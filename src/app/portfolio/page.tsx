@@ -108,31 +108,116 @@ function ContactLinks() {
   );
 }
 
-/* 피벗 전후 App Store 누적 다운로드. ASC 앱 분석 > 앱 설치(App Units) 기준. */
-const DOWNLOADS = [
-  { label: "AIM (통합 앱)", value: 4 },
-  { label: "손쉬운 운동기록", value: 191 },
+/* ASC 앱 분석 > 최초 다운로드 수, 일별 (2026.06.16 출시 ~ 07.05). */
+const DAILY_DOWNLOADS = [
+  { date: "6.16", value: 2 },
+  { date: "6.17", value: 34 },
+  { date: "6.18", value: 22 },
+  { date: "6.19", value: 21 },
+  { date: "6.20", value: 20 },
+  { date: "6.21", value: 7 },
+  { date: "6.22", value: 7 },
+  { date: "6.23", value: 7 },
+  { date: "6.24", value: 7 },
+  { date: "6.25", value: 3 },
+  { date: "6.26", value: 8 },
+  { date: "6.27", value: 5 },
+  { date: "6.28", value: 4 },
+  { date: "6.29", value: 10 },
+  { date: "6.30", value: 5 },
+  { date: "7.1", value: 7 },
+  { date: "7.2", value: 7 },
+  { date: "7.3", value: 5 },
+  { date: "7.4", value: 4 },
+  { date: "7.5", value: 6 },
 ];
 
-function DownloadChart() {
-  const max = Math.max(...DOWNLOADS.map((d) => d.value));
+/* ASC 유입 경로 대시보드 (2026.07.05 기준 누적). */
+const STORE_STATS = [
+  { value: "191", label: "누적 다운로드" },
+  { value: "4.34%", label: "다운로드 전환율 · 일 평균" },
+  { value: "6.7천", label: "스토어 노출" },
+  { value: "17개국", label: "다운로드 국가 · 해외 50%" },
+];
+
+function DownloadTrendChart() {
+  const W = 640;
+  const H = 170;
+  const PAD = { top: 16, right: 10, bottom: 24, left: 30 };
+  const MAX = 35;
+  const n = DAILY_DOWNLOADS.length;
+  const x = (i: number) => PAD.left + (i * (W - PAD.left - PAD.right)) / (n - 1);
+  const y = (v: number) => PAD.top + (1 - v / MAX) * (H - PAD.top - PAD.bottom);
+  const line = DAILY_DOWNLOADS.map(
+    (d, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(d.value).toFixed(1)}`
+  ).join(" ");
+  const area = `${line} L${x(n - 1).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z`;
+  const peak = DAILY_DOWNLOADS.reduce((a, b, i) => (b.value > DAILY_DOWNLOADS[a].value ? i : a), 0);
+  const xTicks = [0, 7, 14, n - 1];
+
   return (
-    <div className="space-y-3">
-      {DOWNLOADS.map((d) => (
-        <div key={d.label}>
-          <div className="flex items-baseline justify-between text-sm mb-1">
-            <span>{d.label}</span>
-            <span className="font-bold text-violet-700 dark:text-violet-300">{d.value}</span>
-          </div>
-          <div className="h-2.5 rounded-full bg-slate-300/40 dark:bg-slate-700/50 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-violet-500 to-violet-400 dark:from-violet-400 dark:to-violet-300"
-              style={{ width: `${Math.max((d.value / max) * 100, 2)}%` }}
-            />
-          </div>
-        </div>
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      className="w-full h-auto"
+      role="img"
+      aria-label="일별 다운로드 추이. 출시일 2, 이튿날 최고 34, 이후 매일 3에서 10 사이."
+    >
+      {[0, 10, 20, 30].map((v) => (
+        <g key={v}>
+          <line
+            x1={PAD.left}
+            x2={W - PAD.right}
+            y1={y(v)}
+            y2={y(v)}
+            className="stroke-slate-300/50 dark:stroke-slate-700/60"
+            strokeWidth="1"
+          />
+          <text
+            x={PAD.left - 6}
+            y={y(v) + 3.5}
+            textAnchor="end"
+            className="fill-slate-500 dark:fill-slate-400 text-[10px]"
+          >
+            {v}
+          </text>
+        </g>
       ))}
-    </div>
+      <path d={area} className="fill-violet-500/15 dark:fill-violet-400/15" />
+      <path
+        d={line}
+        fill="none"
+        className="stroke-violet-600 dark:stroke-violet-400"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      <circle
+        cx={x(peak)}
+        cy={y(DAILY_DOWNLOADS[peak].value)}
+        r="3.5"
+        className="fill-violet-600 dark:fill-violet-400 stroke-[var(--bg-elev)]"
+        strokeWidth="2"
+      />
+      <text
+        x={x(peak)}
+        y={y(DAILY_DOWNLOADS[peak].value) - 7}
+        textAnchor="middle"
+        className="fill-slate-700 dark:fill-slate-200 text-[11px] font-semibold"
+      >
+        {DAILY_DOWNLOADS[peak].value}
+      </text>
+      {xTicks.map((i) => (
+        <text
+          key={i}
+          x={x(i)}
+          y={H - 6}
+          textAnchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"}
+          className="fill-slate-500 dark:fill-slate-400 text-[10px]"
+        >
+          {DAILY_DOWNLOADS[i].date}
+        </text>
+      ))}
+    </svg>
   );
 }
 
@@ -411,13 +496,24 @@ export default function Portfolio() {
               <Card>
                 <h3 className="font-semibold mb-1 text-[15px]">피벗 후 지표</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-                  App Store 누적 다운로드 · 2026.06.16 출시
+                  App Store Connect 앱 분석 · 2026.06.16 출시 ~ 07.05
                 </p>
-                <DownloadChart />
-                <p className="mt-4 text-sm leading-relaxed">
-                  같은 앱을 통합 대신 단일 도메인으로 좁힌 결과, 마케팅 비용 <b>0원</b>에
-                  오가닉만으로 출시 <b>20일</b> 만에 누적 다운로드 <b>4→191</b>. 다운로드와
-                  실사용 지표는 증가 중이다.
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                  {STORE_STATS.map((stat) => (
+                    <div key={stat.label}>
+                      <p className="text-xl font-bold leading-tight">{stat.value}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">일별 다운로드</p>
+                <DownloadTrendChart />
+                <p className="mt-3 text-sm leading-relaxed">
+                  통합 앱 AIM의 누적 다운로드는 <b>4</b>였다. 단일 도메인으로 좁힌 뒤 마케팅
+                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 절반은 해외{" "}
+                  <b>16개국</b>에서 받았다.
                 </p>
               </Card>
               <Card>
@@ -473,22 +569,22 @@ export default function Portfolio() {
             <p className="mb-6 text-slate-600 dark:text-slate-400">
               AI 포토부스 키오스크 스타트업.
             </p>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4">
               {HUMANER_CARDS.map((card) => (
                 <Card key={card.title}>
                   <h3 className="font-semibold mb-3">{card.title}</h3>
-                  <dl className="space-y-2.5 text-sm leading-relaxed">
+                  <dl className="grid gap-3 md:grid-cols-3 text-sm leading-relaxed">
                     <div>
                       <FieldLabel tone="rose">문제</FieldLabel>
-                      <dd>{card.problem}</dd>
+                      <dd className="mt-0.5">{card.problem}</dd>
                     </div>
                     <div>
                       <FieldLabel tone="amber">가설</FieldLabel>
-                      <dd>{card.hypothesis}</dd>
+                      <dd className="mt-0.5">{card.hypothesis}</dd>
                     </div>
                     <div>
                       <FieldLabel tone="emerald">성과</FieldLabel>
-                      <dd>{card.result}</dd>
+                      <dd className="mt-0.5">{card.result}</dd>
                     </div>
                   </dl>
                 </Card>
@@ -502,7 +598,7 @@ export default function Portfolio() {
               수상
             </p>
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight">수상 하이라이트</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight">수상 이력</h2>
               <span className="px-3 py-1 rounded-full border border-amber-500/40 bg-amber-500/10 text-sm text-amber-700 dark:text-amber-400">
                 <b>30+</b> 도전 · <b>25</b> 수상
               </span>
