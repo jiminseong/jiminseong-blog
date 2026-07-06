@@ -258,7 +258,7 @@ export default function Portfolio() {
                 <FaAppStoreIos aria-hidden /> App Store에서 보기
               </ExternalLink>
               <ExternalLink
-                href="https://aim-official.vercel.app"
+                href="https://workout-log-phi-weld.vercel.app"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-300/60 text-slate-600 hover:border-slate-400/70 dark:border-slate-700/70 dark:text-slate-300 dark:hover:border-slate-500 transition-colors"
               >
                 <FaGlobe aria-hidden /> 웹으로 보기
