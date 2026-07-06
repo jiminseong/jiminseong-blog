@@ -127,7 +127,8 @@ export default function Resume() {
             >
               <li>
                 AIM이라는 슈퍼앱 가설로 시작해 개밥먹기로 반증을 발견하고, 모노레포 기반{" "}
-                <b>2개</b> 앱으로 분리하는 피벗을 거쳐 출시.
+                <b>2개</b> 앱으로 분리하는 피벗을 거쳐 출시. 피벗 후 App Store 누적 다운로드{" "}
+                <b>4→191</b>, 증가 중.
               </li>
               <li>
                 <b>295개</b> 운동 카탈로그, <b>6개</b> 언어 지원. 실사용자 운영 중.
@@ -154,7 +155,7 @@ export default function Resume() {
           <Section title="수상">
             <Entry title="GDG Busan Build with AI Hackathon 1위" period="2026.04" sub="86명 중 · 개인" />
             <Entry title="경기 볼런톤 경기도지사상 1위" sub="16팀 80명 중 · 팀장" />
-            <Entry title="제천트래블리그 3위" sub="100팀 중 · 개인 · 8개월" />
+            <Entry title="제천트래블리그 3위 (제천시장상)" sub="100팀 중 · 개인 · 8개월" />
             <Entry title="JUST DO IT 2024 최우수" period="2024" sub="78명 중 · 개인" />
             <Entry title="무한태그 #21 1위" sub="39명 중" />
             <Entry title="AI와 100인의 용사들 1위" sub="25팀 중 · 참여자 100명 투표 1위" />

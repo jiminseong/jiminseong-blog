@@ -45,6 +45,16 @@ const Header = () => {
             </Link>
           );
         })}
+        <Link
+          href="/portfolio"
+          className={
+            pathname === "/portfolio"
+              ? "px-3 py-1 rounded-full border border-violet-600/80 bg-violet-600 text-white dark:border-violet-400/60 dark:bg-violet-300 dark:text-slate-900"
+              : "px-3 py-1 rounded-full border border-violet-500/40 text-violet-700 hover:bg-violet-500/10 dark:border-violet-400/40 dark:text-violet-300 dark:hover:bg-violet-400/10"
+          }
+        >
+          포트폴리오
+        </Link>
       </nav>
     </div>
   );
