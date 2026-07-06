@@ -501,7 +501,7 @@ export default function Portfolio() {
 
           {/* 3. 실무 경험 */}
           <section className="mb-20">
-            <SectionTitle caption="프론트엔드 개발 인턴 · 2025.08~12">휴머너</SectionTitle>
+            <SectionTitle caption="프론트엔드 개발 인턴 · 2025.08~2026.01">휴머너</SectionTitle>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
               AI 포토부스 키오스크 스타트업.
             </p>

@@ -100,7 +100,7 @@ export default function Resume() {
           <Section title="경력">
             <Entry
               title="휴머너 — 프론트엔드 개발 인턴"
-              period="2025.08 – 2025.12"
+              period="2025.08 – 2026.01"
               sub="AI 포토부스 키오스크 스타트업"
             >
               <li>
