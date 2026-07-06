@@ -143,16 +143,21 @@ const STORE_STATS = [
 function DownloadTrendChart() {
   const W = 640;
   const H = 170;
-  const PAD = { top: 16, right: 10, bottom: 24, left: 30 };
-  const MAX = 35;
-  const n = DAILY_DOWNLOADS.length;
+  const PAD = { top: 16, right: 34, bottom: 24, left: 34 };
+  const MAX = 200;
+  const cumulative: number[] = [];
+  DAILY_DOWNLOADS.reduce((sum, d) => {
+    cumulative.push(sum + d.value);
+    return sum + d.value;
+  }, 0);
+  const n = cumulative.length;
   const x = (i: number) => PAD.left + (i * (W - PAD.left - PAD.right)) / (n - 1);
   const y = (v: number) => PAD.top + (1 - v / MAX) * (H - PAD.top - PAD.bottom);
-  const line = DAILY_DOWNLOADS.map(
-    (d, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(d.value).toFixed(1)}`
-  ).join(" ");
+  const line = cumulative
+    .map((v, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`)
+    .join(" ");
   const area = `${line} L${x(n - 1).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z`;
-  const peak = DAILY_DOWNLOADS.reduce((a, b, i) => (b.value > DAILY_DOWNLOADS[a].value ? i : a), 0);
+  const last = n - 1;
   const xTicks = [0, 7, 14, n - 1];
 
   return (
@@ -160,9 +165,9 @@ function DownloadTrendChart() {
       viewBox={`0 0 ${W} ${H}`}
       className="w-full h-auto"
       role="img"
-      aria-label="일별 다운로드 추이. 출시일 2, 이튿날 최고 34, 이후 매일 3에서 10 사이."
+      aria-label="누적 다운로드 추이. 출시일 2에서 20일 만에 191까지 꾸준히 증가."
     >
-      {[0, 10, 20, 30].map((v) => (
+      {[0, 50, 100, 150, 200].map((v) => (
         <g key={v}>
           <line
             x1={PAD.left}
@@ -192,19 +197,19 @@ function DownloadTrendChart() {
         strokeLinecap="round"
       />
       <circle
-        cx={x(peak)}
-        cy={y(DAILY_DOWNLOADS[peak].value)}
+        cx={x(last)}
+        cy={y(cumulative[last])}
         r="3.5"
         className="fill-violet-600 dark:fill-violet-400 stroke-[var(--bg-elev)]"
         strokeWidth="2"
       />
       <text
-        x={x(peak)}
-        y={y(DAILY_DOWNLOADS[peak].value) - 7}
-        textAnchor="middle"
+        x={x(last)}
+        y={y(cumulative[last]) - 8}
+        textAnchor="end"
         className="fill-slate-700 dark:fill-slate-200 text-[11px] font-semibold"
       >
-        {DAILY_DOWNLOADS[peak].value}
+        {cumulative[last]}
       </text>
       {xTicks.map((i) => (
         <text
@@ -508,12 +513,12 @@ export default function Portfolio() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">일별 다운로드</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">누적 다운로드</p>
                 <DownloadTrendChart />
                 <p className="mt-3 text-sm leading-relaxed">
                   통합 앱 AIM의 누적 다운로드는 <b>4</b>였다. 단일 도메인으로 좁힌 뒤 마케팅
-                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 절반은 해외{" "}
-                  <b>16개국</b>에서 받았다.
+                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 첫 주 이후에도 하루{" "}
+                  <b>5~7건</b>이 오가닉으로 이어지고, 절반은 해외 <b>16개국</b>에서 받았다.
                 </p>
               </Card>
               <Card>
