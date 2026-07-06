@@ -331,17 +331,6 @@ const PRODUCTS: Product[] = [
       },
     ],
   },
-  {
-    name: "Claude Code 강의·집필",
-    tagline: "유리프트 입문 강의",
-    stage: { label: "진행 중", className: STAGE.ing },
-    rows: [
-      {
-        label: "내용",
-        content: "Claude Code Skill·Hook으로 개발을 자동화한 경험을 입문 강의와 교재로 정리.",
-      },
-    ],
-  },
 ];
 
 export default function Portfolio() {
@@ -576,10 +565,6 @@ export default function Portfolio() {
 
           {/* 6. 푸터 */}
           <footer className="border-t border-slate-300/50 dark:border-slate-700/60 pt-8">
-            <p className="mb-5 leading-relaxed">
-              부모님의 고깃집에서 자라며 소상공인의 하루를 가까이서 봤습니다. 그 문제를 기술로
-              푸는 일을 좋아합니다.
-            </p>
             <ContactLinks />
           </footer>
         </div>
