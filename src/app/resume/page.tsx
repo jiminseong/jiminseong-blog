@@ -154,12 +154,43 @@ export default function Resume() {
           </Section>
 
           <Section title="수상">
-            <Entry title="GDG Busan Build with AI Hackathon 1위" period="2026.04" sub="86명 중 · 개인" />
-            <Entry title="경기 볼런톤 경기도지사상 1위" sub="16팀 80명 중 · 팀장" />
-            <Entry title="제천트래블리그 3위 (제천시장상)" sub="100팀 중 · 개인 · 8개월" />
+            <Entry
+              title="GDG Daejeon Build with AI Hackathon 3위"
+              period="2026.05"
+              sub="GDG Daejeon · 53명 중 · 개인"
+            >
+              <li>
+                4시간 단독 참가. 가족 일상 공유 앱 &lsquo;우일아&rsquo;를 기획·개발.
+                Design·Frontend·Backend·Presentation 역할의 Claude Code 에이전트를 병렬 운영.
+              </li>
+            </Entry>
+            <Entry
+              title="GDG Busan Build with AI Hackathon 1위"
+              period="2026.04"
+              sub="GDG Busan · 86명 중 · 개인"
+            />
+            <Entry
+              title="경기 볼런톤 경기도지사상 1위"
+              period="2025.08"
+              sub="경기도자원봉사센터 · 16팀 80명 중 · 팀장"
+            />
+            <Entry
+              title="제천트래블리그 3위 (제천시장상)"
+              period="2024.11"
+              sub="제천시 · 100팀 중 · 개인 · 8개월"
+            />
             <Entry title="JUST DO IT 2024 최우수" period="2024" sub="78명 중 · 개인" />
+            <Entry
+              title="AI와 100인의 용사들 1위 (AI특공대상)"
+              period="2024.06"
+              sub="스파르타 코딩클럽 · 25팀 중 · 팀 · 참여자 100명 투표 1위"
+            />
             <Entry title="무한태그 #21 1위" sub="39명 중" />
-            <Entry title="AI와 100인의 용사들 1위" sub="25팀 중 · 참여자 100명 투표 1위" />
+            <Entry
+              title="반지하 활용방안 아이디어 시민 공모전 금상 (2위)"
+              period="2023.12"
+              sub="서울주택도시공사 · 개인"
+            />
             <p className="text-sm text-slate-500 dark:text-slate-400">
               2년간 <b>30개+</b> 공모전 도전, <b>25개</b> 수상.
             </p>
