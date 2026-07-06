@@ -411,12 +411,13 @@ export default function Portfolio() {
               <Card>
                 <h3 className="font-semibold mb-1 text-[15px]">피벗 후 지표</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-                  App Store 누적 다운로드
+                  App Store 누적 다운로드 · 2026.06.16 출시
                 </p>
                 <DownloadChart />
                 <p className="mt-4 text-sm leading-relaxed">
-                  같은 앱을 통합 대신 단일 도메인으로 좁힌 결과, 누적 다운로드 <b>4→191</b>.
-                  다운로드와 실사용 지표는 증가 중이다.
+                  같은 앱을 통합 대신 단일 도메인으로 좁힌 결과, 마케팅 비용 <b>0원</b>에
+                  오가닉만으로 출시 <b>20일</b> 만에 누적 다운로드 <b>4→191</b>. 다운로드와
+                  실사용 지표는 증가 중이다.
                 </p>
               </Card>
               <Card>
