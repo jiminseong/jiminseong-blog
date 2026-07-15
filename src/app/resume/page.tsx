@@ -110,7 +110,7 @@ export default function Resume() {
               </li>
               <li>
                 현장 NPS를 직접 수집해 키오스크 외관 재질 개선을 제안. 대여 비용 <b>75%</b>{" "}
-                감축, B2B 첫 월 매출 <b>500만원</b> 기여.
+                감축, B2B 첫 월 매출 <b>xxxx만원</b> 기여.
               </li>
               <li>
                 홈페이지 구축과 문의 채널 통합(채널톡·Notion·Slack webhook)으로 문의 대응{" "}

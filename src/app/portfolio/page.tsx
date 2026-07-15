@@ -245,7 +245,7 @@ const HUMANER_CARDS: WorkCard[] = [
     result: (
       <>
         재질 개선 제안이 채택되어 키오스크 대여 비용 <b>75%</b> 감축, B2B 첫 월 매출{" "}
-        <b>500만원</b> 기여.
+        <b>xxxx만원</b> 기여.
       </>
     ),
   },
