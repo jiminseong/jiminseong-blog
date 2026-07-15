@@ -2,7 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
-import { FaGithub, FaLinkedin, FaEnvelope, FaGlobe, FaAppStoreIos } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaGlobe,
+  FaAppStoreIos,
+  FaGooglePlay,
+} from "react-icons/fa";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -19,6 +26,8 @@ export const metadata: Metadata = {
 
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/%EC%86%90%EC%89%AC%EC%9A%B4-%EC%9A%B4%EB%8F%99%EA%B8%B0%EB%A1%9D-%ED%97%AC%EC%8A%A4-%EC%9A%B4%EB%8F%99%EC%9D%BC%EC%A7%80/id6780981197?l=ko";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.jiminseong.workoutlog";
 
 function ExternalLink({
   href,
@@ -496,6 +505,12 @@ export default function Portfolio() {
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-400 dark:text-slate-900 dark:hover:bg-violet-300 transition-colors"
               >
                 <FaAppStoreIos aria-hidden /> App Store에서 보기
+              </ExternalLink>
+              <ExternalLink
+                href={PLAY_STORE_URL}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-400 dark:text-slate-900 dark:hover:bg-violet-300 transition-colors"
+              >
+                <FaGooglePlay aria-hidden /> Google Play에서 보기
               </ExternalLink>
               <ExternalLink
                 href="https://workout-log-phi-weld.vercel.app"
