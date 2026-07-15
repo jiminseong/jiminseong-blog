@@ -519,9 +519,6 @@ export default function Portfolio() {
                 <FaGlobe aria-hidden /> 웹으로 보기
               </ExternalLink>
             </div>
-            <p className="mt-5 text-slate-600 dark:text-slate-400 text-[15px]">
-              가설을 세우고, 스스로 반증하고, 피벗한 결과를 스토어까지 출시해 운영한다.
-            </p>
           </section>
 
           {/* 3. 실무 경험 */}
