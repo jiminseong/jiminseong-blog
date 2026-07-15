@@ -15,11 +15,11 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "지민성 | Product Portfolio",
   description:
-    "현장에서 문제를 찾고, 직접 만들어 검증하며 운영까지 책임지는 사람. 손쉬운 운동기록 App Store 출시·운영 중.",
+    "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. 손쉬운 운동기록 App Store 출시·운영 중.",
   openGraph: {
     title: "지민성 | Product Portfolio",
     description:
-      "현장에서 문제를 찾고, 직접 만들어 검증하며 운영까지 책임지는 사람. 손쉬운 운동기록 App Store 출시·운영 중.",
+      "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. 손쉬운 운동기록 App Store 출시·운영 중.",
     images: ["/assets/blog/author/profile.png"],
   },
 };
@@ -229,7 +229,7 @@ const HUMANER_CARDS: WorkCard[] = [
   {
     title: "어드민 대시보드 구축",
     problem: "행사 현장 키오스크의 상태와 에러를 원격에서 알 수 없어 장애 대응이 늦었다.",
-    hypothesis: "상태·에러를 실시간으로 모으는 어드민이 있으면 무중단 운영이 가능하다.",
+    hypothesis: "상태와 에러를 한곳에서 확인하면 장애를 더 빨리 발견하고 대응할 수 있다.",
     result: (
       <>
         문제 발견부터 제안·풀스택 구현까지 단독 수행(Sentry·Posthog).{" "}
@@ -272,7 +272,7 @@ const AWARDS: Award[] = [
   {
     title: "GDG Busan Build with AI Hackathon 1위",
     detail: "86명 중 · 2026.04 · 개인",
-    desc: "심사 기준을 역산해 역방향으로 가설을 세우고, Claude Code Agent Teams로 기획부터 발표까지 전 과정을 단독 수행.",
+    desc: "심사 기준에 맞춰 핵심 기능을 정하고, Claude Code Agent Teams로 기획부터 발표까지 전 과정을 단독 수행.",
   },
   {
     title: "경기 볼런톤 경기도지사상 1위",
@@ -403,11 +403,10 @@ export default function Portfolio() {
               지민성
             </h1>
             <p className="text-xl md:text-2xl leading-snug mb-3">
-              현장에서 문제를 찾고, 직접 만들어 검증하며 운영까지 책임지는 사람
+              직접 기획하고 개발한 제품을 출시해 운영하고 있습니다
             </p>
             <p className="text-slate-600 dark:text-slate-400 mb-2">
-              2년간 <b>30개+</b> 공모전 도전, <b>25개</b> 수상 · 풀스택으로 기획-개발-운영까지
-              혼자 완결
+              2년간 <b>30개+</b> 공모전 도전, <b>25개</b> 수상 · 기획·개발·운영을 직접 수행
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-500 mb-6">
               TypeScript · React · Next.js · React Native(Expo) · Supabase · Electron ·
@@ -418,7 +417,7 @@ export default function Portfolio() {
 
           {/* 2. 대표 프로덕트 */}
           <section className="mb-20">
-            <SectionTitle caption="프로젝트 AIM에서 피벗">손쉬운 운동기록</SectionTitle>
+            <SectionTitle caption="프로젝트 AIM에서 분리">손쉬운 운동기록</SectionTitle>
             <p className="mb-2">
               헬스 운동일지 앱. App Store에 출시해 운영 중이며, 기획·디자인·개발·운영을 혼자
               담당한다.
@@ -430,32 +429,31 @@ export default function Portfolio() {
             <div className="grid gap-4">
               <Card>
                 <h3 className="font-semibold mb-3 text-[15px]">
-                  가설 → 반증 → 피벗
+                  AIM에서 운동 기록 앱으로
                 </h3>
                 <ol className="space-y-3 text-[15px] leading-relaxed">
                   <li>
                     <span className="font-bold text-violet-600 dark:text-violet-400 mr-2">1</span>
-                    AIM이라는 슈퍼앱 가설(운동·식단·투두 통합 → 리텐션 향상)로 시작했다.
+                    AIM은 운동·식단·투두를 한 앱에서 관리하도록 만든 앱이었다.
                   </li>
                   <li>
                     <span className="font-bold text-violet-600 dark:text-violet-400 mr-2">2</span>
-                    개밥먹기로 반증을 발견했다. &lsquo;투두&rsquo;는 앱 간 연결을 정당화할
-                    접착력이 부족했고, 통합 UX가 오히려 도메인 집중도를 낮췄다.
+                    직접 사용해보니 운동 기록과 투두를 한 앱에 묶을 이유가 약했고, 필요한
+                    기능을 찾기도 어려웠다.
                   </li>
                   <li>
                     <span className="font-bold text-violet-600 dark:text-violet-400 mr-2">3</span>
-                    모노레포 기반 <b>2개</b> 앱으로 분리하는 피벗을 결정했다. 공통
-                    컴포넌트·로직·서버를 공유한다.
+                    기능별로 <b>2개</b> 앱으로 나눴다. 모노레포에서 공통 컴포넌트·로직·서버를
+                    공유한다.
                   </li>
                   <li>
                     <span className="font-bold text-violet-600 dark:text-violet-400 mr-2">4</span>
-                    그 첫 결과물이 &lsquo;손쉬운 운동기록&rsquo;. 현재 App Store에서 실사용자를
-                    운영 중이다.
+                    먼저 &lsquo;손쉬운 운동기록&rsquo;을 출시했고, 현재 실제 사용자가 이용하고 있다.
                   </li>
                 </ol>
               </Card>
               <Card>
-                <h3 className="font-semibold mb-1 text-[15px]">피벗 후 지표</h3>
+                <h3 className="font-semibold mb-1 text-[15px]">분리 출시 후 지표</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                   App Store Connect 앱 분석 · 2026.06.16 출시 ~ 07.05
                 </p>
@@ -473,8 +471,8 @@ export default function Portfolio() {
                 <DownloadTrendChart />
                 <p className="mt-3 text-sm leading-relaxed">
                   통합 앱 AIM의 누적 다운로드는 <b>4</b>였다. 단일 도메인으로 좁힌 뒤 마케팅
-                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 첫 주 이후에도 하루{" "}
-                  <b>5~7건</b>이 오가닉으로 이어지고, 절반은 해외 <b>16개국</b>에서 받았다.
+                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 별도 광고 없이 첫 주 이후에도
+                  하루 <b>5~7건</b>씩 다운로드됐고, 절반은 해외 <b>16개국</b>에서 받았다.
                 </p>
               </Card>
               <Card>
@@ -494,7 +492,7 @@ export default function Portfolio() {
                   </li>
                   <li>
                     지표는 익명 이벤트 <b>2개</b>(앱 실행, 세트 기록)만 수집하고 운동 내용은
-                    전송하지 않는다. North Star는 주 <b>3회</b> 이상 기록 세션.
+                    전송하지 않는다. 목표 지표는 주 <b>3회</b> 이상 운동을 기록한 사용자 수다.
                   </li>
                 </ul>
               </Card>
