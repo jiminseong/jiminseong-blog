@@ -196,6 +196,10 @@ export default function Resume() {
             </p>
           </Section>
 
+          <Section title="학력">
+            <Entry title="가천대학교 컴퓨터공학과 졸업" period="2020.03 – 2026.02" />
+          </Section>
+
           <Section title="교육·활동">
             <Entry title="2025 Daangn Builder's Camp 수료" sub="LocalPing 기획·개발" />
             <Entry title="Claude Code 입문 강의·집필" sub="유리프트" />
