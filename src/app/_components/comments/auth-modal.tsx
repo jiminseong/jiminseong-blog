@@ -20,8 +20,10 @@ const COPY = {
     switchPrompt: "이미 계정이 있다면",
     switchAction: "로그인",
   },
-  footer: "이런 블로그를 직접 만들어 보고 싶다면",
   contactEmail: "jiminseong.dev@gmail.com",
+  forgot: "비밀번호를 잊으셨다면",
+  forgotSuffix: "으로 문의 주세요.",
+  footer: "이런 블로그를 직접 만들어 보고 싶다면",
   footerSuffix: "으로 문의 주세요.",
 } as const;
 
@@ -255,6 +257,19 @@ export function AuthModal({ open, initialMode = "signin", onClose }: Props) {
             {submitting ? "처리 중..." : copy.submit}
           </button>
         </form>
+
+        {!isSignup && (
+          <p className="mt-3 break-keep text-center text-[11px] text-neutral-400 dark:text-neutral-500">
+            {COPY.forgot}{" "}
+            <a
+              href={`mailto:${COPY.contactEmail}?subject=${encodeURIComponent("[jiminseong.com] 비밀번호 초기화 요청")}`}
+              className="whitespace-nowrap underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+            >
+              {COPY.contactEmail}
+            </a>
+            {COPY.forgotSuffix}
+          </p>
+        )}
 
         <p className="mt-4 break-keep text-center text-xs text-neutral-500 dark:text-neutral-400">
           {copy.switchPrompt}{" "}
