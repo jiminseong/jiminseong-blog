@@ -7,6 +7,42 @@ import { CATEGORIES, SOCIAL_LINKS } from "@/lib/constants";
 import pkg from "../../../package.json";
 import { Profile } from "./profile";
 import { ThemeSwitcher } from "./theme-switcher";
+import { useSession } from "./comments/use-session";
+
+// 로그인한 사람의 아바타. 프로필 아이콘 줄 끝에 붙어 "연결돼 있다"는 느낌을 준다.
+const ViewerAvatar = () => {
+  const { user } = useSession();
+  if (!user) return null;
+
+  const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
+  const name =
+    (meta.full_name as string | undefined) ??
+    (meta.name as string | undefined) ??
+    user.email?.split("@")[0] ??
+    "사용자";
+  const avatar = meta.avatar_url as string | undefined;
+  const initial = name.trim().charAt(0).toUpperCase() || "?";
+
+  return (
+    <>
+      <span aria-hidden className="h-5 w-px bg-slate-300/70 dark:bg-slate-700/80" />
+      <div
+        title={`${name} (로그인됨)`}
+        aria-label={`${name} 로그인됨`}
+        className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-300/60 dark:ring-slate-700/70"
+      >
+        {avatar ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={avatar} alt="" className="h-full w-full object-cover" />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-slate-200 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            {initial}
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
 const PAGES = [
   { href: "/", label: "블로그" },
@@ -110,6 +146,7 @@ const Header = () => {
             linkedinUrl={SOCIAL_LINKS.linkedin}
           />
           <ThemeSwitcher />
+          <ViewerAvatar />
         </div>
       </div>
       <PageDock pathname={pathname} />
