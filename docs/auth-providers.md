@@ -1,13 +1,23 @@
-# 소셜 로그인 Provider 등록 가이드
+# 댓글 로그인 가이드
 
-> **2026-09-11 변경**: 독자용 소셜 로그인은 전부 제거했다. 댓글은 익명(이름 입력)만 가능하다.
-> 로그인은 작성자 배지·댓글 관리용으로 **`/admin` 페이지에서 Google 하나만** 쓴다.
-> 아래 GitHub / Kakao / Discord / Notion 섹션은 과거 기록이며, 해당 OAuth 앱과 Supabase provider는 정리 대상이다.
+> **2026-09-11 (v1.0.0)**: 소셜 OAuth 로그인은 전부 제거했다. 댓글은 **익명** 또는 **이메일/비밀번호 자체 로그인**으로 작성한다.
+> 아래 provider 섹션은 과거 기록이다. 외부 OAuth 앱(GitHub/Kakao/Discord/Notion)은 2026-09-11 삭제 완료, Supabase provider도 Disabled.
 
-`src/app/admin/admin-panel.tsx`가 유일한 로그인 진입점이다.
-공통 정보부터 읽고, 등록할 provider 섹션으로 이동.
+## 현재 구조
+
+- 진입점: `src/app/_components/comments/auth-panel.tsx` — `signInWithPassword` / `signUp` (닉네임은 `options.data.full_name`으로 저장, 트리거가 `author_name`으로 복사)
+- 로그인 없이도 이름만 입력하면 익명 댓글 가능
+- 로그인 시 닉네임 자동 표시, 본인 댓글 삭제 가능. owner role이면 `(작성자)` 배지 + 모든 댓글 삭제
+- Supabase Dashboard → Authentication → Providers → **Email**: Enabled, **Confirm email: OFF** (기본 SMTP는 팀원 주소에만 시간당 2통이라 켜면 독자 가입 불가)
+- 비밀번호 재설정은 메일 발송이 필요해 현재 미지원. 필요해지면 custom SMTP(Resend 등) 붙인 뒤 `resetPasswordForEmail` 추가
+- 작성자(owner) 계정 만들기: 기존 Google 유저를 Dashboard → Users에서 삭제 → 블로그에서 같은 이메일로 회원가입 → SQL Editor에서 role 부여 → 로그아웃/로그인
+  ```sql
+  update auth.users set raw_app_meta_data = coalesce(raw_app_meta_data,'{}'::jsonb) || '{"role":"owner"}'::jsonb where email = 'iamjms4237@gmail.com';
+  ```
 
 ---
+
+# (과거 기록) 소셜 로그인 Provider 등록 가이드
 
 ## 공통 정보 (모든 provider에 동일)
 
@@ -40,7 +50,7 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 ---
 
-## 1. Google (활성, `/admin` 전용)
+## 1. Google (제거됨, 과거 기록)
 - **콘솔**: https://console.cloud.google.com/auth/clients/create
 - **Application type**: Web application
 - **Authorized JavaScript origins**: `https://jiminseong.com`, `http://localhost:3000`
@@ -103,6 +113,5 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 - 공식 문서: https://supabase.com/docs/guides/auth/social-login
 - 트리거 `set_comment_author_from_auth`가 `raw_user_meta_data->>'full_name' → name → user_name → preferred_username → email prefix → '사용자'` 순으로 fallback하므로 provider 메타 구조에 너무 신경 쓰지 않아도 됨
-- 활성 provider 1개: Google (`/admin` 전용). 독자 로그인 UI는 없음
-- 다른 provider를 되살리려면 `admin-panel.tsx`의 `signInWithOAuth({ provider })` 호출을 바꾸거나 버튼을 추가 → Supabase Dashboard 등록 → 끝
+- 활성 소셜 provider 0개. 되살리려면 `auth-panel.tsx`에 `signInWithOAuth({ provider })` 버튼 추가 + `/auth/callback` 라우트 복원(git history `9e63f1a` 이전) → Supabase Dashboard 등록
 - Spotify 제외: Spotify API가 `email_verified` 필드를 반환하지 않아 Supabase Auth가 항상 unverified로 처리. 우회하려면 Supabase의 "Confirm email" 토글을 OFF 해야 하는데 현재 dashboard에서 노출 안 됨.
