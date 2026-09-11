@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 
-type Mode = "signin" | "signup";
+export type AuthMode = "signin" | "signup";
+type Mode = AuthMode;
 
 const MAX_NAME = 40;
 const MIN_PASSWORD = 8;
@@ -27,11 +28,12 @@ function toKoreanError(message: string): string {
 }
 
 type Props = {
+  initialMode?: AuthMode;
   onClose: () => void;
 };
 
-export function AuthPanel({ onClose }: Props) {
-  const [mode, setMode] = useState<Mode>("signin");
+export function AuthPanel({ initialMode = "signin", onClose }: Props) {
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");

@@ -5,7 +5,7 @@ import { useSession } from "./use-session";
 import { useComments } from "./use-comments";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
-import { AuthPanel } from "./auth-panel";
+import { AuthPanel, type AuthMode } from "./auth-panel";
 
 type Props = {
   slug: string;
@@ -13,7 +13,7 @@ type Props = {
 
 export default function Comments({ slug }: Props) {
   const { user, isOwner } = useSession();
-  const [authOpen, setAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<AuthMode | null>(null);
   const {
     topLevel,
     repliesByParent,
@@ -75,26 +75,20 @@ export default function Comments({ slug }: Props) {
       )}
 
       <div className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        {!user && (
+        {!user && authMode && (
           <div className="mb-4">
-            {authOpen ? (
-              <AuthPanel onClose={() => setAuthOpen(false)} />
-            ) : (
-              <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                로그인 없이 바로 댓글을 남길 수 있습니다.{" "}
-                <button
-                  type="button"
-                  onClick={() => setAuthOpen(true)}
-                  className="font-medium text-neutral-800 underline underline-offset-2 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white"
-                >
-                  로그인
-                </button>
-                하면 닉네임이 자동으로 붙고 내 댓글을 삭제할 수 있습니다.
-              </p>
-            )}
+            <AuthPanel
+              key={authMode}
+              initialMode={authMode}
+              onClose={() => setAuthMode(null)}
+            />
           </div>
         )}
-        <CommentForm user={user} onSubmit={addComment} />
+        <CommentForm
+          user={user}
+          onSubmit={addComment}
+          onRequestAuth={(mode) => setAuthMode(mode)}
+        />
       </div>
     </section>
   );
