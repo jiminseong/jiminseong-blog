@@ -5,7 +5,7 @@
   border-radius: 50%;
   border: 1px dashed currentColor;
   cursor: pointer;
-  --size: 22px;
+  --size: 28px;
   height: var(--size);
   width: var(--size);
   transition: all 0.3s ease-in-out 0s !important;
