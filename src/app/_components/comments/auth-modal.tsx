@@ -9,18 +9,18 @@ export type AuthMode = "signin" | "signup";
 const COPY = {
   title: "jiminseong.com에서 소통하기",
   signin: {
-    description: "로그인하면 닉네임으로 댓글이 남고, 내 댓글을 지울 수 있어요.",
+    description: "로그인하면 닉네임으로 댓글이 남고, 내 댓글을 직접 지울 수 있어요.",
     submit: "로그인",
     switchPrompt: "처음이신가요?",
-    switchAction: "닉네임 하나로 시작하기",
+    switchAction: "이메일로 시작하기",
   },
   signup: {
-    description: "닉네임과 이메일만 저장하고, 댓글 표시와 삭제에만 씁니다.",
+    description: "닉네임과 이메일만 저장하고, 댓글 표시와 삭제에만 사용해요.",
     submit: "시작하기",
     switchPrompt: "이미 계정이 있다면",
     switchAction: "로그인",
   },
-  footer: "이런 블로그를 직접 만들어보고 싶다면",
+  footer: "이런 블로그를 직접 만들어 보고 싶다면",
   contactEmail: "jiminseong.dev@gmail.com",
   footerSuffix: "으로 문의 주세요.",
 } as const;
@@ -205,7 +205,7 @@ export function AuthModal({ open, initialMode = "signin", onClose }: Props) {
         >
           {COPY.title}
         </h2>
-        <p className="mt-1.5 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+        <p className="mt-1.5 break-keep text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
           {copy.description}
         </p>
 
@@ -241,10 +241,10 @@ export function AuthModal({ open, initialMode = "signin", onClose }: Props) {
           />
 
           {error && (
-            <p className="text-xs text-red-600 dark:text-red-400">{error}</p>
+            <p className="break-keep text-xs text-red-600 dark:text-red-400">{error}</p>
           )}
           {notice && (
-            <p className="text-xs text-neutral-600 dark:text-neutral-300">{notice}</p>
+            <p className="break-keep text-xs text-neutral-600 dark:text-neutral-300">{notice}</p>
           )}
 
           <button
@@ -256,7 +256,7 @@ export function AuthModal({ open, initialMode = "signin", onClose }: Props) {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-xs text-neutral-500 dark:text-neutral-400">
+        <p className="mt-4 break-keep text-center text-xs text-neutral-500 dark:text-neutral-400">
           {copy.switchPrompt}{" "}
           <button
             type="button"
@@ -267,15 +267,17 @@ export function AuthModal({ open, initialMode = "signin", onClose }: Props) {
           </button>
         </p>
 
-        <p className="mt-5 border-t border-neutral-100 pt-4 text-center text-[11px] leading-relaxed text-neutral-400 dark:border-neutral-800 dark:text-neutral-500">
-          {COPY.footer}{" "}
-          <a
-            href={`mailto:${COPY.contactEmail}`}
-            className="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
-          >
-            {COPY.contactEmail}
-          </a>
-          {COPY.footerSuffix}
+        <p className="mt-5 break-keep border-t border-neutral-100 pt-4 text-center text-[11px] leading-relaxed text-neutral-400 dark:border-neutral-800 dark:text-neutral-500">
+          <span className="block">{COPY.footer}</span>
+          <span className="block whitespace-nowrap">
+            <a
+              href={`mailto:${COPY.contactEmail}`}
+              className="underline underline-offset-2 hover:text-neutral-600 dark:hover:text-neutral-300"
+            >
+              {COPY.contactEmail}
+            </a>
+            {COPY.footerSuffix}
+          </span>
         </p>
       </div>
     </div>
