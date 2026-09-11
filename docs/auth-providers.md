@@ -1,9 +1,23 @@
-# 소셜 로그인 Provider 등록 가이드
+# 댓글 로그인 가이드
 
-`auth-buttons.tsx`에 정의된 모든 활성 provider의 Supabase 연동 방법.
-공통 정보부터 읽고, 등록할 provider 섹션으로 이동.
+> **2026-09-11 (v1.0.0)**: 소셜 OAuth 로그인은 전부 제거했다. 댓글은 **익명** 또는 **이메일/비밀번호 자체 로그인**으로 작성한다.
+> 아래 provider 섹션은 과거 기록이다. 외부 OAuth 앱(GitHub/Kakao/Discord/Notion)은 2026-09-11 삭제 완료, Supabase provider도 Disabled.
+
+## 현재 구조
+
+- 진입점: `src/app/_components/comments/auth-panel.tsx` — `signInWithPassword` / `signUp` (닉네임은 `options.data.full_name`으로 저장, 트리거가 `author_name`으로 복사)
+- 로그인 없이도 이름만 입력하면 익명 댓글 가능
+- 로그인 시 닉네임 자동 표시, 본인 댓글 삭제 가능. owner role이면 `(작성자)` 배지 + 모든 댓글 삭제
+- Supabase Dashboard → Authentication → Providers → **Email**: Enabled, **Confirm email: OFF** (기본 SMTP는 팀원 주소에만 시간당 2통이라 켜면 독자 가입 불가)
+- 비밀번호 재설정은 메일 발송이 필요해 현재 미지원. 필요해지면 custom SMTP(Resend 등) 붙인 뒤 `resetPasswordForEmail` 추가
+- 작성자(owner) 계정 만들기: 기존 Google 유저를 Dashboard → Users에서 삭제 → 블로그에서 같은 이메일로 회원가입 → SQL Editor에서 role 부여 → 로그아웃/로그인
+  ```sql
+  update auth.users set raw_app_meta_data = coalesce(raw_app_meta_data,'{}'::jsonb) || '{"role":"owner"}'::jsonb where email = 'iamjms4237@gmail.com';
+  ```
 
 ---
+
+# (과거 기록) 소셜 로그인 Provider 등록 가이드
 
 ## 공통 정보 (모든 provider에 동일)
 
@@ -36,7 +50,7 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 ---
 
-## 1. Google V
+## 1. Google (제거됨, 과거 기록)
 - **콘솔**: https://console.cloud.google.com/auth/clients/create
 - **Application type**: Web application
 - **Authorized JavaScript origins**: `https://jiminseong.com`, `http://localhost:3000`
@@ -46,14 +60,14 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 - **Supabase fields**: Client ID, Client Secret
 - ⚠ 민감한(sensitive)/제한된(restricted) 스코프 추가 시 Google 검증 며칠~수주
 
-## 2. GitHub v
+## 2. GitHub (제거됨, 과거 기록)
 - **콘솔**: https://github.com/settings/developers → New OAuth App
 - **Homepage URL**: `https://jiminseong.com`
 - **Authorization callback URL**: `https://eesqdybnbqtstfplcjla.supabase.co/auth/v1/callback`
 - **Scopes**: 별도 요구 없음 (이메일은 기본 노출)
 - **Supabase fields**: Client ID, Client Secret
 
-## 3. Kakao (카카오) v
+## 3. Kakao (제거됨, 과거 기록)
 - **콘솔**: https://developers.kakao.com → 내 애플리케이션 → 추가
 - **JavaScript SDK 도메인** (앱 → 플랫폼 키 → Default JS Key 클릭): `https://jiminseong.com`, `http://localhost:3000`
   - ※ Supabase 서버 사이드 OAuth만 쓰면 필수는 아니지만 등록 권장
@@ -68,14 +82,14 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
   - Client Secret = 같은 페이지의 "클라이언트 시크릿" 섹션에서 코드 생성 → 복사
 - 💡 사이트 도메인 자리에 IP 칸이 있는데, IP 칸엔 절대 URL 넣지 말 것 (저장 실패하거나 OAuth 깨짐)
 
-## 4. Discord v
+## 4. Discord (제거됨, 과거 기록)
 - **콘솔**: https://discord.com/developers → New Application
 - **OAuth2 → Redirects**: `https://eesqdybnbqtstfplcjla.supabase.co/auth/v1/callback`
 - **Scopes**: 별도 명시 없음 (`identify`, `email` 정도 자동 요청)
 - **Supabase fields**: Client ID, Client Secret
 
 
-## 7. Notion v
+## 7. Notion (제거됨, 과거 기록)
 - **콘솔**: https://www.notion.so/my-integrations
 - **Type**: Public integration
 - **Capabilities**: "Read user information including email addresses"
@@ -99,6 +113,5 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 - 공식 문서: https://supabase.com/docs/guides/auth/social-login
 - 트리거 `set_comment_author_from_auth`가 `raw_user_meta_data->>'full_name' → name → user_name → preferred_username → email prefix → '사용자'` 순으로 fallback하므로 provider 메타 구조에 너무 신경 쓰지 않아도 됨
-- 새 provider 추가 시: `auth-buttons.tsx`의 `PROVIDERS` 배열에 항목 추가 → Supabase Dashboard 등록 → 끝
-- 활성 provider 5개: Google, GitHub, Kakao, Discord, Notion
+- 활성 소셜 provider 0개. 되살리려면 `auth-panel.tsx`에 `signInWithOAuth({ provider })` 버튼 추가 + `/auth/callback` 라우트 복원(git history `9e63f1a` 이전) → Supabase Dashboard 등록
 - Spotify 제외: Spotify API가 `email_verified` 필드를 반환하지 않아 Supabase Auth가 항상 unverified로 처리. 우회하려면 Supabase의 "Confirm email" 토글을 OFF 해야 하는데 현재 dashboard에서 노출 안 됨.

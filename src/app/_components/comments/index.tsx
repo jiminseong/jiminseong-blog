@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { useSession } from "./use-session";
 import { useComments } from "./use-comments";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
-import { AuthErrorBanner } from "./auth-error-banner";
+import { AuthModal } from "./auth-modal";
 
 type Props = {
   slug: string;
@@ -12,6 +13,7 @@ type Props = {
 
 export default function Comments({ slug }: Props) {
   const { user, isOwner } = useSession();
+  const [authOpen, setAuthOpen] = useState(false);
   const {
     topLevel,
     repliesByParent,
@@ -52,8 +54,6 @@ export default function Comments({ slug }: Props) {
         )}
       </h2>
 
-      <AuthErrorBanner />
-
       <CommentList
         topLevel={topLevel}
         repliesByParent={repliesByParent}
@@ -75,8 +75,14 @@ export default function Comments({ slug }: Props) {
       )}
 
       <div className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <CommentForm user={user} onSubmit={addComment} />
+        <CommentForm
+          user={user}
+          onSubmit={addComment}
+          onRequestAuth={() => setAuthOpen(true)}
+        />
       </div>
+
+      <AuthModal open={!user && authOpen} onClose={() => setAuthOpen(false)} />
     </section>
   );
 }
