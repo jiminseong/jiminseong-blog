@@ -4,7 +4,6 @@ import { useSession } from "./use-session";
 import { useComments } from "./use-comments";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
-import { AuthErrorBanner } from "./auth-error-banner";
 
 type Props = {
   slug: string;
@@ -51,8 +50,6 @@ export default function Comments({ slug }: Props) {
           </span>
         )}
       </h2>
-
-      <AuthErrorBanner />
 
       <CommentList
         topLevel={topLevel}

@@ -1,6 +1,10 @@
 # 소셜 로그인 Provider 등록 가이드
 
-`auth-buttons.tsx`에 정의된 모든 활성 provider의 Supabase 연동 방법.
+> **2026-09-11 변경**: 독자용 소셜 로그인은 전부 제거했다. 댓글은 익명(이름 입력)만 가능하다.
+> 로그인은 작성자 배지·댓글 관리용으로 **`/admin` 페이지에서 Google 하나만** 쓴다.
+> 아래 GitHub / Kakao / Discord / Notion 섹션은 과거 기록이며, 해당 OAuth 앱과 Supabase provider는 정리 대상이다.
+
+`src/app/admin/admin-panel.tsx`가 유일한 로그인 진입점이다.
 공통 정보부터 읽고, 등록할 provider 섹션으로 이동.
 
 ---
@@ -36,7 +40,7 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 ---
 
-## 1. Google V
+## 1. Google (활성, `/admin` 전용)
 - **콘솔**: https://console.cloud.google.com/auth/clients/create
 - **Application type**: Web application
 - **Authorized JavaScript origins**: `https://jiminseong.com`, `http://localhost:3000`
@@ -46,14 +50,14 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 - **Supabase fields**: Client ID, Client Secret
 - ⚠ 민감한(sensitive)/제한된(restricted) 스코프 추가 시 Google 검증 며칠~수주
 
-## 2. GitHub v
+## 2. GitHub (제거됨, 과거 기록)
 - **콘솔**: https://github.com/settings/developers → New OAuth App
 - **Homepage URL**: `https://jiminseong.com`
 - **Authorization callback URL**: `https://eesqdybnbqtstfplcjla.supabase.co/auth/v1/callback`
 - **Scopes**: 별도 요구 없음 (이메일은 기본 노출)
 - **Supabase fields**: Client ID, Client Secret
 
-## 3. Kakao (카카오) v
+## 3. Kakao (제거됨, 과거 기록)
 - **콘솔**: https://developers.kakao.com → 내 애플리케이션 → 추가
 - **JavaScript SDK 도메인** (앱 → 플랫폼 키 → Default JS Key 클릭): `https://jiminseong.com`, `http://localhost:3000`
   - ※ Supabase 서버 사이드 OAuth만 쓰면 필수는 아니지만 등록 권장
@@ -68,14 +72,14 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
   - Client Secret = 같은 페이지의 "클라이언트 시크릿" 섹션에서 코드 생성 → 복사
 - 💡 사이트 도메인 자리에 IP 칸이 있는데, IP 칸엔 절대 URL 넣지 말 것 (저장 실패하거나 OAuth 깨짐)
 
-## 4. Discord v
+## 4. Discord (제거됨, 과거 기록)
 - **콘솔**: https://discord.com/developers → New Application
 - **OAuth2 → Redirects**: `https://eesqdybnbqtstfplcjla.supabase.co/auth/v1/callback`
 - **Scopes**: 별도 명시 없음 (`identify`, `email` 정도 자동 요청)
 - **Supabase fields**: Client ID, Client Secret
 
 
-## 7. Notion v
+## 7. Notion (제거됨, 과거 기록)
 - **콘솔**: https://www.notion.so/my-integrations
 - **Type**: Public integration
 - **Capabilities**: "Read user information including email addresses"
@@ -99,6 +103,6 @@ Supabase Dashboard → Authentication → Providers → <provider 이름>
 
 - 공식 문서: https://supabase.com/docs/guides/auth/social-login
 - 트리거 `set_comment_author_from_auth`가 `raw_user_meta_data->>'full_name' → name → user_name → preferred_username → email prefix → '사용자'` 순으로 fallback하므로 provider 메타 구조에 너무 신경 쓰지 않아도 됨
-- 새 provider 추가 시: `auth-buttons.tsx`의 `PROVIDERS` 배열에 항목 추가 → Supabase Dashboard 등록 → 끝
-- 활성 provider 5개: Google, GitHub, Kakao, Discord, Notion
+- 활성 provider 1개: Google (`/admin` 전용). 독자 로그인 UI는 없음
+- 다른 provider를 되살리려면 `admin-panel.tsx`의 `signInWithOAuth({ provider })` 호출을 바꾸거나 버튼을 추가 → Supabase Dashboard 등록 → 끝
 - Spotify 제외: Spotify API가 `email_verified` 필드를 반환하지 않아 Supabase Auth가 항상 unverified로 처리. 우회하려면 Supabase의 "Confirm email" 토글을 OFF 해야 하는데 현재 dashboard에서 노출 안 됨.

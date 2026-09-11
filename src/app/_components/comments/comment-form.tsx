@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
-import { AuthButtons } from "./auth-buttons";
 import type { AddCommentInput } from "./types";
 
 const RATE_LIMIT_KEY = "comment-last-submitted-at";
@@ -154,7 +153,7 @@ export function CommentForm({ user, onSubmit, parentId, onCancel }: Props) {
       {error && <p className="text-xs text-red-600 dark:text-red-400">{error}</p>}
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        {!user && !isReply ? <AuthButtons /> : <span aria-hidden />}
+        <span aria-hidden />
         <div className="ml-auto flex items-center gap-2">
           {isReply && onCancel && (
             <button
@@ -181,7 +180,7 @@ export function CommentForm({ user, onSubmit, parentId, onCancel }: Props) {
 
       {!user && !isReply && (
         <p className="text-xs text-neutral-500 dark:text-neutral-400">
-          이름을 비우면 <span className="font-medium">익명</span>으로 등록됩니다. 소셜 로그인 시 닉네임·프로필 사진이 자동 적용됩니다.
+          이름을 비우면 <span className="font-medium">익명</span>으로 등록됩니다.
         </p>
       )}
     </form>
