@@ -4,7 +4,6 @@ import { useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import type { AddCommentInput } from "./types";
-import type { AuthMode } from "./auth-panel";
 
 const RATE_LIMIT_KEY = "comment-last-submitted-at";
 const RATE_LIMIT_MS = 30_000;
@@ -16,7 +15,7 @@ type Props = {
   onSubmit: (payload: AddCommentInput) => Promise<void>;
   parentId?: string;
   onCancel?: () => void;
-  onRequestAuth?: (mode: AuthMode) => void;
+  onRequestAuth?: () => void;
 };
 
 function getDisplayName(user: User): string {
@@ -161,26 +160,7 @@ export function CommentForm({
       {error && <p className="text-xs text-red-600 dark:text-red-400">{error}</p>}
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        {!user && !isReply && onRequestAuth ? (
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => onRequestAuth("signin")}
-              className="rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
-            >
-              로그인
-            </button>
-            <button
-              type="button"
-              onClick={() => onRequestAuth("signup")}
-              className="rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
-            >
-              회원가입
-            </button>
-          </div>
-        ) : (
-          <span aria-hidden />
-        )}
+        <span aria-hidden />
         <div className="ml-auto flex items-center gap-2">
           {isReply && onCancel && (
             <button
@@ -207,7 +187,19 @@ export function CommentForm({
 
       {!user && !isReply && (
         <p className="text-xs text-neutral-500 dark:text-neutral-400">
-          이름을 비우면 <span className="font-medium">익명</span>으로 등록됩니다. 로그인하면 닉네임이 자동으로 붙고 내 댓글을 삭제할 수 있습니다.
+          이름을 비우면 <span className="font-medium">익명</span>으로 등록됩니다.
+          {onRequestAuth && (
+            <>
+              {" · "}
+              <button
+                type="button"
+                onClick={onRequestAuth}
+                className="underline underline-offset-2 hover:text-neutral-900 dark:hover:text-neutral-100"
+              >
+                로그인
+              </button>
+            </>
+          )}
         </p>
       )}
     </form>

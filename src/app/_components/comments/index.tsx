@@ -5,7 +5,7 @@ import { useSession } from "./use-session";
 import { useComments } from "./use-comments";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
-import { AuthPanel, type AuthMode } from "./auth-panel";
+import { AuthModal } from "./auth-modal";
 
 type Props = {
   slug: string;
@@ -13,7 +13,7 @@ type Props = {
 
 export default function Comments({ slug }: Props) {
   const { user, isOwner } = useSession();
-  const [authMode, setAuthMode] = useState<AuthMode | null>(null);
+  const [authOpen, setAuthOpen] = useState(false);
   const {
     topLevel,
     repliesByParent,
@@ -75,21 +75,14 @@ export default function Comments({ slug }: Props) {
       )}
 
       <div className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        {!user && authMode && (
-          <div className="mb-4">
-            <AuthPanel
-              key={authMode}
-              initialMode={authMode}
-              onClose={() => setAuthMode(null)}
-            />
-          </div>
-        )}
         <CommentForm
           user={user}
           onSubmit={addComment}
-          onRequestAuth={(mode) => setAuthMode(mode)}
+          onRequestAuth={() => setAuthOpen(true)}
         />
       </div>
+
+      <AuthModal open={!user && authOpen} onClose={() => setAuthOpen(false)} />
     </section>
   );
 }
