@@ -15,17 +15,17 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "지민성 | Product Portfolio",
   description:
-    "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. 손쉬운 운동기록 App Store 출시·운영 중.",
+    "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. LOG(구 손쉬운 운동기록) App Store·Google Play 출시·운영 중.",
   openGraph: {
     title: "지민성 | Product Portfolio",
     description:
-      "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. 손쉬운 운동기록 App Store 출시·운영 중.",
+      "직접 기획하고 개발한 제품을 출시해 운영하는 프론트엔드 개발자 지민성. LOG(구 손쉬운 운동기록) App Store·Google Play 출시·운영 중.",
     images: ["/assets/blog/author/profile.png"],
   },
 };
 
 const APP_STORE_URL =
-  "https://apps.apple.com/us/app/%EC%86%90%EC%89%AC%EC%9A%B4-%EC%9A%B4%EB%8F%99%EA%B8%B0%EB%A1%9D-%ED%97%AC%EC%8A%A4-%EC%9A%B4%EB%8F%99%EC%9D%BC%EC%A7%80/id6780981197?l=ko";
+  "https://apps.apple.com/us/app/log-gym-workout-tracker-1rm/id6780981197?l=ko";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.jiminseong.workoutlog";
 
@@ -419,10 +419,10 @@ export default function Portfolio() {
 
           {/* 2. 대표 프로덕트 */}
           <section className="mb-20">
-            <SectionTitle caption="프로젝트 AIM에서 분리">손쉬운 운동기록</SectionTitle>
+            <SectionTitle caption="프로젝트 AIM에서 분리">LOG</SectionTitle>
             <p className="mb-2">
-              헬스 운동일지 앱. App Store와 Google Play에 출시해 운영 중이며, 기획·디자인·개발·운영을
-              혼자 담당한다.
+              헬스 운동일지 앱 &lsquo;LOG&rsquo;. App Store와 Google Play에 출시해 운영 중이며,
+              기획·디자인·개발·운영을 혼자 담당한다.
             </p>
             <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
               현재 <b>1.7.0</b> · 양대 스토어 운영 중 · <b>92개</b> 운동 카탈로그 · <b>8개</b> 부위 ·
@@ -450,7 +450,8 @@ export default function Portfolio() {
                   </li>
                   <li>
                     <span className="font-bold text-violet-600 dark:text-violet-400 mr-2">4</span>
-                    먼저 &lsquo;손쉬운 운동기록&rsquo;을 출시했고, 현재 실제 사용자가 이용하고 있다.
+                    먼저 &lsquo;손쉬운 운동기록&rsquo;이라는 이름으로 출시했고, 이후 &lsquo;LOG&rsquo;로
+                    리브랜딩해 현재 실제 사용자가 이용하고 있다.
                   </li>
                 </ol>
               </Card>

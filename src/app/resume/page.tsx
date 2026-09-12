@@ -6,10 +6,10 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "지민성 | Resume",
-  description: "지민성 이력서. 프론트엔드·프로덕트. 손쉬운 운동기록 App Store 출시·운영 중.",
+  description: "지민성 이력서. 프론트엔드·프로덕트. LOG(구 손쉬운 운동기록) App Store·Google Play 출시·운영 중.",
   openGraph: {
     title: "지민성 | Resume",
-    description: "지민성 이력서. 프론트엔드·프로덕트. 손쉬운 운동기록 App Store 출시·운영 중.",
+    description: "지민성 이력서. 프론트엔드·프로덕트. LOG(구 손쉬운 운동기록) App Store·Google Play 출시·운영 중.",
     images: ["/assets/blog/author/profile.png"],
   },
 };
@@ -121,7 +121,7 @@ export default function Resume() {
 
           <Section title="프로젝트">
             <Entry
-              title="손쉬운 운동기록"
+              title="LOG"
               period="운영 중"
               sub="헬스 운동일지 앱 · App Store·Google Play 출시 · 기획·디자인·개발·운영 1인"
             >
