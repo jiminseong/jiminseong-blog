@@ -100,66 +100,55 @@ function ContactLinks() {
   );
 }
 
-/* ASC 앱 분석 > 최초 다운로드 수, 일별 (2026.06.16 출시 ~ 07.05). */
-const DAILY_DOWNLOADS = [
-  { date: "6.16", value: 2 },
-  { date: "6.17", value: 34 },
-  { date: "6.18", value: 22 },
-  { date: "6.19", value: 21 },
-  { date: "6.20", value: 20 },
-  { date: "6.21", value: 7 },
-  { date: "6.22", value: 7 },
-  { date: "6.23", value: 7 },
-  { date: "6.24", value: 7 },
-  { date: "6.25", value: 3 },
-  { date: "6.26", value: 8 },
-  { date: "6.27", value: 5 },
-  { date: "6.28", value: 4 },
-  { date: "6.29", value: 10 },
-  { date: "6.30", value: 5 },
-  { date: "7.1", value: 7 },
-  { date: "7.2", value: 7 },
-  { date: "7.3", value: 5 },
-  { date: "7.4", value: 4 },
-  { date: "7.5", value: 6 },
+/* 누적 최초 다운로드(iOS). day = 2026.06.16 출시일로부터의 경과일.
+   06.16~07.05 는 ASC 일별 리포트 합, 07.05~08.02 는 ASC 90일 집계(585),
+   08.02 이후는 ASC 주간 리포트 증분. */
+const DOWNLOAD_CURVE = [
+  { day: 0, date: "6.16", total: 2 },
+  { day: 6, date: "6.22", total: 113 },
+  { day: 13, date: "6.29", total: 157 },
+  { day: 19, date: "7.5", total: 191 },
+  { day: 47, date: "8.2", total: 585 },
+  { day: 54, date: "8.9", total: 651 },
+  { day: 61, date: "8.16", total: 778 },
+  { day: 68, date: "8.23", total: 893 },
+  { day: 75, date: "8.30", total: 1051 },
+  { day: 82, date: "9.6", total: 1229 },
+  { day: 88, date: "9.12", total: 1313 },
 ];
 
-/* ASC 유입 경로 대시보드 (2026.07.05 기준 누적). */
+/* ASC 앱 분석 + Amplitude (2026.09.12 기준). */
 const STORE_STATS = [
-  { value: "191", label: "누적 다운로드" },
-  { value: "4.34%", label: "다운로드 전환율 · 일 평균" },
-  { value: "6.7천", label: "스토어 노출" },
-  { value: "17개국", label: "다운로드 국가 · 해외 50%" },
+  { value: "1,313", label: "누적 다운로드 · iOS" },
+  { value: "894", label: "30일 활성 사용자" },
+  { value: "6.6만", label: "기록된 운동 세트" },
+  { value: "90%", label: "해외 사용자 · 중국어 76%" },
 ];
 
 function DownloadTrendChart() {
   const W = 640;
   const H = 170;
-  const PAD = { top: 16, right: 34, bottom: 24, left: 34 };
-  const MAX = 200;
-  const cumulative: number[] = [];
-  DAILY_DOWNLOADS.reduce((sum, d) => {
-    cumulative.push(sum + d.value);
-    return sum + d.value;
-  }, 0);
-  const n = cumulative.length;
-  const x = (i: number) => PAD.left + (i * (W - PAD.left - PAD.right)) / (n - 1);
+  const PAD = { top: 16, right: 42, bottom: 24, left: 40 };
+  const MAX = 1400;
+  const SPAN = DOWNLOAD_CURVE[DOWNLOAD_CURVE.length - 1].day;
+  const n = DOWNLOAD_CURVE.length;
+  const x = (day: number) => PAD.left + (day * (W - PAD.left - PAD.right)) / SPAN;
   const y = (v: number) => PAD.top + (1 - v / MAX) * (H - PAD.top - PAD.bottom);
-  const line = cumulative
-    .map((v, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`)
-    .join(" ");
-  const area = `${line} L${x(n - 1).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z`;
-  const last = n - 1;
-  const xTicks = [0, 7, 14, n - 1];
+  const line = DOWNLOAD_CURVE.map(
+    (d, i) => `${i === 0 ? "M" : "L"}${x(d.day).toFixed(1)},${y(d.total).toFixed(1)}`,
+  ).join(" ");
+  const area = `${line} L${x(SPAN).toFixed(1)},${y(0)} L${x(0).toFixed(1)},${y(0)} Z`;
+  const last = DOWNLOAD_CURVE[n - 1];
+  const xTicks = [0, 19, 47, 75, SPAN];
 
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
       className="w-full h-auto"
       role="img"
-      aria-label="누적 다운로드 추이. 출시일 2에서 20일 만에 191까지 꾸준히 증가."
+      aria-label="누적 다운로드 추이. 출시일 2에서 89일 만에 1,313까지 증가."
     >
-      {[0, 50, 100, 150, 200].map((v) => (
+      {[0, 350, 700, 1050, 1400].map((v) => (
         <g key={v}>
           <line
             x1={PAD.left}
@@ -188,32 +177,45 @@ function DownloadTrendChart() {
         strokeLinejoin="round"
         strokeLinecap="round"
       />
+      {DOWNLOAD_CURVE.map((d) => (
+        <circle
+          key={d.day}
+          cx={x(d.day)}
+          cy={y(d.total)}
+          r="2"
+          className="fill-violet-600 dark:fill-violet-400"
+        />
+      ))}
       <circle
-        cx={x(last)}
-        cy={y(cumulative[last])}
+        cx={x(last.day)}
+        cy={y(last.total)}
         r="3.5"
         className="fill-violet-600 dark:fill-violet-400 stroke-[var(--bg-elev)]"
         strokeWidth="2"
       />
       <text
-        x={x(last)}
-        y={y(cumulative[last]) - 8}
+        x={x(last.day)}
+        y={y(last.total) - 8}
         textAnchor="end"
         className="fill-slate-700 dark:fill-slate-200 text-[11px] font-semibold"
       >
-        {cumulative[last]}
+        {last.total.toLocaleString()}
       </text>
-      {xTicks.map((i) => (
-        <text
-          key={i}
-          x={x(i)}
-          y={H - 6}
-          textAnchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"}
-          className="fill-slate-500 dark:fill-slate-400 text-[10px]"
-        >
-          {DAILY_DOWNLOADS[i].date}
-        </text>
-      ))}
+      {xTicks.map((day) => {
+        const point = DOWNLOAD_CURVE.find((d) => d.day === day);
+        if (!point) return null;
+        return (
+          <text
+            key={day}
+            x={x(day)}
+            y={H - 6}
+            textAnchor={day === 0 ? "start" : day === SPAN ? "end" : "middle"}
+            className="fill-slate-500 dark:fill-slate-400 text-[10px]"
+          >
+            {point.date}
+          </text>
+        );
+      })}
     </svg>
   );
 }
@@ -419,12 +421,12 @@ export default function Portfolio() {
           <section className="mb-20">
             <SectionTitle caption="프로젝트 AIM에서 분리">손쉬운 운동기록</SectionTitle>
             <p className="mb-2">
-              헬스 운동일지 앱. App Store에 출시해 운영 중이며, 기획·디자인·개발·운영을 혼자
-              담당한다.
+              헬스 운동일지 앱. App Store와 Google Play에 출시해 운영 중이며, 기획·디자인·개발·운영을
+              혼자 담당한다.
             </p>
             <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-              App Store 출시 · 실사용자 운영 중 · <b>295개</b> 운동 카탈로그 · <b>6개</b> 언어
-              지원
+              현재 <b>1.7.0</b> · 양대 스토어 운영 중 · <b>92개</b> 운동 카탈로그 · <b>8개</b> 부위 ·
+              <b>10개</b> 언어 지원
             </p>
             <div className="grid gap-4">
               <Card>
@@ -455,7 +457,7 @@ export default function Portfolio() {
               <Card>
                 <h3 className="font-semibold mb-1 text-[15px]">분리 출시 후 지표</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-                  App Store Connect 앱 분석 · 2026.06.16 출시 ~ 07.05
+                  App Store Connect 앱 분석 · Amplitude · 2026.06.16 출시 후 <b>89일</b>
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
                   {STORE_STATS.map((stat) => (
@@ -470,9 +472,12 @@ export default function Portfolio() {
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">누적 다운로드</p>
                 <DownloadTrendChart />
                 <p className="mt-3 text-sm leading-relaxed">
-                  통합 앱 AIM의 누적 다운로드는 <b>4</b>였다. 단일 도메인으로 좁힌 뒤 마케팅
-                  비용 <b>0원</b>, 출시 <b>20일</b> 만에 <b>191</b>. 별도 광고 없이 첫 주 이후에도
-                  하루 <b>5~7건</b>씩 다운로드됐고, 절반은 해외 <b>16개국</b>에서 받았다.
+                  통합 앱 AIM의 누적 다운로드는 <b>4</b>였다. 단일 도메인으로 좁힌 뒤 마케팅 비용{" "}
+                  <b>0원</b>, 출시 <b>20일</b>에 <b>191</b>, <b>89일</b>에 <b>1,313</b>. 유입은
+                  전부 App Store 검색이고 소셜 계정과 광고 집행은 아직 <b>0</b>이다. 획득 엔진이
+                  스토어 검색이라는 것이 확인된 뒤 로케일별 키워드를 넓혔고, 그 결과 사용자
+                  <b>90%</b>가 해외다. 중국어가 <b>76%</b>, 영어 <b>11%</b>, 한국어{" "}
+                  <b>10%</b>다.
                 </p>
               </Card>
               <Card>
@@ -491,8 +496,10 @@ export default function Portfolio() {
                     업로드, 심사 제출까지 스크립트 한 줄로 처리.
                   </li>
                   <li>
-                    지표는 익명 이벤트 <b>2개</b>(앱 실행, 세트 기록)만 수집하고 운동 내용은
-                    전송하지 않는다. 목표 지표는 주 <b>3회</b> 이상 운동을 기록한 사용자 수다.
+                    Amplitude로 익명 이벤트 <b>52종</b>을 수집하되 중량·횟수 같은 기록 값은
+                    전송하지 않는다. 운동 <b>5일</b>을 채운 사용자에게 PMF 설문을 띄워 유료화
+                    가능성을 먼저 재고, <b>83명</b>의 응답 중 <b>57%</b>가 &ldquo;없어지면 많이
+                    아쉽다&rdquo;를 골랐다.
                   </li>
                 </ul>
               </Card>
