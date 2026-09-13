@@ -544,7 +544,7 @@ main();
 - <strong>`THREE.Geometry`</strong>
   - **정점 데이터를 정의하고 GPU에 버퍼를 생성**해서 구성해주는 부분, <br/>즉 **3D 모델의 정점, 법선, 텍스처 좌표** 등의 데이터를 관리하는 부분
 - <strong>`THREE.Material`</strong>
-  - **쉐이더 코드**에 대한 부분, 그리고 **유니폼 데이터(바인드 데이터)**에 대한 코드도 해당된다.
+  - **쉐이더 코드**에 대한 부분, 그리고 **유니폼 데이터**(바인드 데이터)에 대한 코드도 해당된다.
 - <strong>`THREE.Mesh`</strong>
   - 전체 코드에서 정확히 짚을 수는 없지만, <strong>`Geometry`와 `Material`을 조합해서 실제로 효과적으로 관리</strong>할 수 있도록 한다.
 - <strong>`THREE.Scene`</strong>
