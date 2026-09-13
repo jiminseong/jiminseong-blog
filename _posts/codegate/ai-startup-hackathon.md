@@ -1,5 +1,5 @@
 ---
-title: "CODE GATE AI STARTUP HACKATHON 2026 : 처음 유니티 개발을 했는데 서비스 완성과 수상까지"
+title: "CODEGATE AI STARTUP HACKATHON 2026 : 처음 유니티 개발을 했는데 서비스 완성과 수상까지"
 excerpt: "유니티를 처음 만져본 해커톤에서 25시간 만에 게임을 완성하고 3등까지. 기획에 절반을 쏟았던 과정과 바이브 코딩의 한계를 정리했습니다."
 coverImage: "/assets/blog/codegate/ai-startup-hackathon/cover.png"
 date: "2026-09-13"
@@ -24,7 +24,7 @@ CODEGATE는 2008년부터 이어져 온 국내 대표 국제 해킹 방어 대�
 
 ## 본격적인 기획
 
-![CODE GATE AI STARTUP HACKATHON 2026 현장](/assets/blog/codegate/ai-startup-hackathon/hackathon-live.png)
+![CODEGATE AI STARTUP HACKATHON 2026 현장](/assets/blog/codegate/ai-startup-hackathon/hackathon-live.png)
 
 *이미지 출처: ZDNet Korea, 김기찬 기자, [「[체험] "새벽 3시 2개팀 포기...18개팀 무박 25시간 완주"」](https://zdnet.co.kr/view/?no=20260723034946), 2026. 7. 23.*
 
@@ -56,9 +56,9 @@ CODEGATE는 2008년부터 이어져 온 국내 대표 국제 해킹 방어 대�
 
 ## 생각보다 컸던 행사, 그리고 수상
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/zIc78PRb0HU" title="CODE GATE 레이저쇼 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/zIc78PRb0HU" title="CODEGATE 레이저쇼 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-![CODE GATE AI STARTUP HACKATHON 2026 3위 수상 단체 사진](/assets/blog/codegate/ai-startup-hackathon/hackathon-award.png)
+![CODEGATE AI STARTUP HACKATHON 2026 3위 수상 단체 사진](/assets/blog/codegate/ai-startup-hackathon/hackathon-award.png)
 
 ## 마치며
 
