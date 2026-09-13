@@ -163,6 +163,10 @@
 .markdown td {
   @apply px-4 py-2;
   border: 1px solid var(--border);
+  /* 본문의 overflow-wrap: anywhere가 좁은 칸에서 "Vercel"을 "Verce/l"로 끊는다.
+     칸 안에서는 단어를 자르지 않고 열 너비가 늘어나게 둔다. */
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .markdown a {
