@@ -1,10 +1,10 @@
 ---
 title: "Aside 브라우저 시작하기, 설치부터 쿠팡 주문까지"
 excerpt: "AI가 대신 클릭하는 브라우저 Aside를 공식 문서 기준으로 설치하고, 첫 작업으로 쿠팡 주문을 결제 직전까지 맡겨 봅니다."
-coverImage: "/assets/blog/guide/aside-browser-setup-2026/cover.png"
+coverImage: "/assets/blog/guide/aside-browser-setup/cover.png"
 date: "2026-09-13"
 ogImage:
-  url: "/assets/blog/guide/aside-browser-setup-2026/cover.png"
+  url: "/assets/blog/guide/aside-browser-setup/cover.png"
 category: guide
 aiAssisted: true
 draft: true
@@ -16,7 +16,7 @@ draft: true
 - 첫 작업으로 **쿠팡에서 물건 하나를 골라 결제 직전까지** 맡겨 봅니다.
 - 준비 포함 20분, 두 번째부터는 문장 하나 붙여넣기예요.
 
-이 글의 주소는 `jiminseong.com/guide/aside-browser-setup-2026` 입니다. 설정 순서는 Aside 공식 도움말을 기준으로 썼어요.
+이 글의 주소는 `jiminseong.com/guide/aside-browser-setup` 입니다. 설정 순서는 Aside 공식 도움말을 기준으로 썼어요.
 
 # Aside가 뭔가요?
 
@@ -188,7 +188,7 @@ Aside는 결제, 게시물 작성, 메시지 발송처럼 되돌리기 어려운
 
 - "내 블로그 최근 글 5개의 링크가 살아 있는지 확인해 줘"
 - "지난달 카드 명세서에서 구독 결제만 골라 표로 정리해 줘"
-- "가비아에서 산 도메인을 Vercel 프로젝트에 연결해 줘" ([이 글](/guide/vercel-domain-setup-2026)의 과정을 통째로 맡기는 거예요)
+- "가비아에서 산 도메인을 Vercel 프로젝트에 연결해 줘" ([이 글](/guide/vercel-domain-setup)의 과정을 통째로 맡기는 거예요)
 
 # 안전하게 쓰는 규칙
 

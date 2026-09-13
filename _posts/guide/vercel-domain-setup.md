@@ -1,10 +1,10 @@
 ---
 title: "도메인 구매부터 Vercel 연결까지, 비개발자도 따라 하는 완벽 가이드"
 excerpt: "가비아에서 도메인을 사고 Vercel에 붙이는 과정을 화면 단위로 정리했습니다. 값 한 줄을 복사해 붙여넣는 게 전부예요."
-coverImage: "/assets/blog/guide/vercel-domain-setup-2026/cover.png"
+coverImage: "/assets/blog/guide/vercel-domain-setup/cover.png"
 date: "2026-09-13"
 ogImage:
-  url: "/assets/blog/guide/vercel-domain-setup-2026/cover.png"
+  url: "/assets/blog/guide/vercel-domain-setup/cover.png"
 category: guide
 aiAssisted: true
 ---
@@ -17,7 +17,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 모든 화면을 캡처해 두었으니 그림만 보고 따라오셔도 돼요.
 - 15분이면 끝나고, 반영까지 길어야 하루예요.
 
-이 글의 주소는 `jiminseong.com/guide/vercel-domain-setup-2026` 입니다. 이 주소의 `jiminseong.com` 역시 지금 설명하는 방법 그대로 연결했어요. 화면 캡처도 전부 제 실제 계정에서 찍은 것입니다.
+이 글의 주소는 `jiminseong.com/guide/vercel-domain-setup` 입니다. 이 주소의 `jiminseong.com` 역시 지금 설명하는 방법 그대로 연결했어요. 화면 캡처도 전부 제 실제 계정에서 찍은 것입니다.
 
 # 오늘 쓰는 사이트는 딱 두 곳이에요
 
@@ -66,13 +66,13 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 가비아 홈페이지에 접속해 로그인합니다.
 - 구글, 네이버, 카카오 간편 로그인을 쓸 수 있어요. 왼쪽부터 구글, 네이버, 카카오 순서로 놓여 있습니다.
 
-![가비아 로그인 페이지 - 간편 로그인 버튼](/assets/blog/guide/vercel-domain-setup-2026/01.png)
+![가비아 로그인 페이지 - 간편 로그인 버튼](/assets/blog/guide/vercel-domain-setup/01.png)
 
 ## 2단계. 도메인 검색
 
 - 메인 화면 가운데 검색창에 원하는 이름을 입력하고 **검색**을 눌러요.
 
-![가비아 메인 도메인 검색창 - 검색 입력칸과 검색 버튼](/assets/blog/guide/vercel-domain-setup-2026/02.png)
+![가비아 메인 도메인 검색창 - 검색 입력칸과 검색 버튼](/assets/blog/guide/vercel-domain-setup/02.png)
 
 ## 3단계. 등록 가능한 도메인 고르기
 
@@ -80,7 +80,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 살 수 있는 것만 오른쪽에 **선택** 버튼이 있어요.
 - 원하는 도메인 행의 **선택**을 누릅니다.
 
-![가비아 도메인 검색 결과 - 등록 가능한 .com 행의 선택 버튼](/assets/blog/guide/vercel-domain-setup-2026/03.png)
+![가비아 도메인 검색 결과 - 등록 가능한 .com 행의 선택 버튼](/assets/blog/guide/vercel-domain-setup/03.png)
 
 처음이라면 `.com`을 추천해요. 한국 대상 서비스면 `.kr`도 좋아요.
 
@@ -90,7 +90,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 별도의 장바구니 페이지로 넘어가지 않아요. 같은 화면 오른쪽에 그대로 붙어 있습니다.
 - 패널 아래 **신청하기**를 눌러요.
 
-![가비아 도메인 장바구니 패널 - 신청하기 버튼](/assets/blog/guide/vercel-domain-setup-2026/04.png)
+![가비아 도메인 장바구니 패널 - 신청하기 버튼](/assets/blog/guide/vercel-domain-setup/04.png)
 
 ## 5단계. 신청 정보 입력
 
@@ -98,7 +98,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - **등록 기간의 기본값은 3년입니다.** 처음이라면 **1년**으로 바꾸세요.
 - 부가 서비스는 `안전잠금` 토글 하나뿐이고, 기본값이 꺼짐이에요. 그대로 두면 됩니다.
 
-![가비아 신청 정보 입력 - 등록 기간 1년과 안전잠금 토글](/assets/blog/guide/vercel-domain-setup-2026/05.png)
+![가비아 신청 정보 입력 - 등록 기간 1년과 안전잠금 토글](/assets/blog/guide/vercel-domain-setup/05.png)
 
 ## 6단계. 소유자 정보와 결제
 
@@ -120,7 +120,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 왼쪽 메뉴에서 **Domains**를 바로 누릅니다.
 - Settings 안에 있지 않아요. 왼쪽 목록의 독립 항목이고, Settings는 맨 아래 따로 있습니다.
 
-![Vercel 프로젝트 화면 - 왼쪽 사이드바의 Domains 메뉴](/assets/blog/guide/vercel-domain-setup-2026/07.png)
+![Vercel 프로젝트 화면 - 왼쪽 사이드바의 Domains 메뉴](/assets/blog/guide/vercel-domain-setup/07.png)
 
 ## 2단계. 도메인 추가
 
@@ -129,12 +129,12 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - `Add Domains` 팝업이 열리면 도메인을 입력해요.
 - 입력 전에는 버튼이 `Add 0 Domains`로 비활성이고, 입력하면 `Add Domain`으로 바뀝니다.
 
-![Vercel Add Domains 팝업 - 도메인 입력칸과 Add Domain 버튼](/assets/blog/guide/vercel-domain-setup-2026/08.png)
+![Vercel Add Domains 팝업 - 도메인 입력칸과 Add Domain 버튼](/assets/blog/guide/vercel-domain-setup/08.png)
 
 - 같은 팝업 안에 `Redirect apex domains to www (recommended)` 체크박스가 있어요.
 - **기본값이 이미 체크되어 있습니다.** 그대로 두면 `mysite.com`으로 들어와도 `www.mysite.com`으로 자동 이동돼요.
 
-![Vercel Add Domains 팝업 - www 리다이렉트 체크박스](/assets/blog/guide/vercel-domain-setup-2026/09.png)
+![Vercel Add Domains 팝업 - www 리다이렉트 체크박스](/assets/blog/guide/vercel-domain-setup/09.png)
 
 ## 3단계. 적어야 할 IP 주소 확인
 
@@ -142,11 +142,11 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - 아직 가비아에 값을 적기 전이라 정상입니다.
 - 도메인 옆 **View DNS configuration**을 눌러 펼쳐요.
 
-![Vercel 도메인 카드 - DNS Change Recommended 배지와 View DNS configuration](/assets/blog/guide/vercel-domain-setup-2026/10.png)
+![Vercel 도메인 카드 - DNS Change Recommended 배지와 View DNS configuration](/assets/blog/guide/vercel-domain-setup/10.png)
 
 - 펼치면 표가 하나 나와요. 이게 가비아에 적을 값입니다.
 
-![Vercel DNS 설정 안내 표 - Name과 Value의 복사 아이콘](/assets/blog/guide/vercel-domain-setup-2026/11.png)
+![Vercel DNS 설정 안내 표 - Name과 Value의 복사 아이콘](/assets/blog/guide/vercel-domain-setup/11.png)
 
 | 항목 | 값 | 뜻 |
 |---|---|---|
@@ -162,13 +162,13 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 
 - 가비아로 돌아와 오른쪽 위 **My가비아**를 클릭해요.
 
-![가비아 상단 메뉴 - My가비아 버튼](/assets/blog/guide/vercel-domain-setup-2026/12.png)
+![가비아 상단 메뉴 - My가비아 버튼](/assets/blog/guide/vercel-domain-setup/12.png)
 
 - 왼쪽 **서비스 관리**를 누릅니다.
 - 목록 위 드롭다운에서 **전체 서비스**를 **도메인**으로 바꿔요. 도메인만 있는 메뉴는 따로 없어요.
 - 해당 도메인 행의 **관리** 버튼을 누릅니다.
 
-![My가비아 서비스 목록 - 서비스 종류 드롭다운과 관리 버튼](/assets/blog/guide/vercel-domain-setup-2026/13.png)
+![My가비아 서비스 목록 - 서비스 종류 드롭다운과 관리 버튼](/assets/blog/guide/vercel-domain-setup/13.png)
 
 ## 2단계. DNS 관리 열기
 
@@ -179,7 +179,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 
 즉 왼쪽 메뉴의 DNS 관리는 목적지가 아니라 통로예요. 진짜 작업은 세 번째 창에서 합니다.
 
-![가비아 도메인 관리 창 - 왼쪽 사이드바의 DNS 관리 메뉴](/assets/blog/guide/vercel-domain-setup-2026/14.png)
+![가비아 도메인 관리 창 - 왼쪽 사이드바의 DNS 관리 메뉴](/assets/blog/guide/vercel-domain-setup/14.png)
 
 **지름길도 있어요.** 다음부터는 이렇게 하시면 창을 한 번만 열어요.
 
@@ -197,7 +197,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - `dns.gabia.com`에서 내 도메인이 보이는지 확인해요.
 - **DNS 설정** 옆 **레코드 수정** 버튼을 누릅니다.
 
-![가비아 DNS 관리 - 도메인 이름과 레코드 수정 버튼](/assets/blog/guide/vercel-domain-setup-2026/15.png)
+![가비아 DNS 관리 - 도메인 이름과 레코드 수정 버튼](/assets/blog/guide/vercel-domain-setup/15.png)
 
 **이미 다른 줄이 있어도 지우지 마세요.** 위 캡처에는 세 줄이 있어요. 메일이나 사이트 인증에 쓰이는 값이라 지우면 그 기능이 멈춥니다. 우리는 A 레코드 한 줄만 더하거나 고칠 거예요.
 
@@ -216,7 +216,7 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 | TTL | 기본값 그대로 (`600`) | 직접 입력이 아니라 드롭다운입니다 |
 | 우선순위 | 비워 둡니다 | A 레코드에는 필요 없어요 |
 
-![가비아 DNS 레코드 수정 - 새 줄에 타입 A, 호스트 @, IP를 입력한 상태와 저장 버튼](/assets/blog/guide/vercel-domain-setup-2026/16.png)
+![가비아 DNS 레코드 수정 - 새 줄에 타입 A, 호스트 @, IP를 입력한 상태와 저장 버튼](/assets/blog/guide/vercel-domain-setup/16.png)
 
 호스트에 `@`를 넣으면 칸 바로 아래 회색으로 `.내도메인.com`이 붙어요. `@`가 도메인 자기 자신을 뜻한다는 걸 눈으로 확인할 수 있는 지점이에요. 위 캡처에서 새로 만든 줄은 맨 아래에 있고, 원래 있던 세 줄은 위에 그대로 남아 있습니다.
 
@@ -240,14 +240,14 @@ Vercel로 사이트를 처음 만들면 주소가 `내프로젝트.vercel.app`�
 - Vercel의 Domains 화면으로 돌아가 해당 도메인 행의 **Refresh**를 눌러요.
 - 파란 체크와 함께 **Valid Configuration**으로 바뀌면 성공이에요.
 
-![Vercel Domains 화면 - Refresh 버튼과 Valid Configuration 표시](/assets/blog/guide/vercel-domain-setup-2026/17.png)
+![Vercel Domains 화면 - Refresh 버튼과 Valid Configuration 표시](/assets/blog/guide/vercel-domain-setup/17.png)
 
 **주황색 경고가 남아 있어도 괜찮은 경우가 있어요.** 사이트가 정상으로 열리는데 `DNS Change Recommended`가 보인다면, 연결은 되어 있고 Vercel이 더 새로운 IP로 바꾸기를 권하는 상태예요. 급하지 않습니다. 위 캡처에서도 제 도메인은 주황색이고, 파란 체크는 `.vercel.app` 주소에만 붙어 있어요.
 
 - 브라우저 주소창에 도메인을 입력해 보세요.
 - 사이트가 뜨고 주소창 왼쪽에 **사이트 정보 아이콘**이 보이면 끝난 거예요.
 
-![브라우저 주소창 - 사이트 정보 아이콘](/assets/blog/guide/vercel-domain-setup-2026/18.png)
+![브라우저 주소창 - 사이트 정보 아이콘](/assets/blog/guide/vercel-domain-setup/18.png)
 
 *위 이미지는 주소창 부분을 재현해 만든 것입니다. 안쪽 페이지는 실제 화면이에요.*
 
