@@ -20,6 +20,7 @@ export function MoreStories({ posts }: Props) {
             date={post.date}
             slug={post.slug}
             excerpt={post.excerpt}
+            aiAssisted={post.aiAssisted}
           />
         ))}
       </div>

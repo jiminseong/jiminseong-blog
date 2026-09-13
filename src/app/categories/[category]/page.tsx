@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
+import { AiBadge } from "@/app/_components/ai-badge";
 import { getAllPosts } from "@/lib/api";
 import { CATEGORY_LABEL, CATEGORY_SLUGS, NAME } from "@/lib/constants";
 
@@ -37,7 +38,10 @@ export default async function CategoryPage(props: Params) {
                   >
                     {post.title}
                   </Link>
-                  <div className="text-xs text-slate-500 mt-1">{post.date}</div>
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 mt-1">
+                    <span>{post.date}</span>
+                    {post.aiAssisted && <AiBadge />}
+                  </div>
                   {post.excerpt && (
                     <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
                       {post.excerpt}

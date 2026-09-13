@@ -5,7 +5,9 @@ export const NAME = "지민성";
 export const HOME_OG_IMAGE_URL =
   "https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg";
 
+// 순서가 헤더 카테고리 칩의 노출 순서다.
 export const CATEGORIES = [
+  { slug: "guide", label: "가이드" },
   { slug: "frontend", label: "프론트엔드" },
   { slug: "book", label: "독서" },
   { slug: "product", label: "프로덕트" },
@@ -18,16 +20,10 @@ export const CATEGORIES = [
 
 export const CATEGORY_SLUGS: Category[] = CATEGORIES.map((c) => c.slug) as Category[];
 
-export const CATEGORY_LABEL: Record<Category, string> = {
-  frontend: "프론트엔드",
-  book: "독서",
-  product: "프로덕트",
-  retrospect: "회고",
-  data: "데이터",
-  marketing: "마케팅",
-  planning: "기획",
-  movie: "영화",
-};
+// CATEGORIES에서 파생시켜 두 곳이 어긋나는 일을 막는다.
+export const CATEGORY_LABEL = Object.fromEntries(
+  CATEGORIES.map((c) => [c.slug, c.label])
+) as Record<Category, string>;
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/jiminseong",
