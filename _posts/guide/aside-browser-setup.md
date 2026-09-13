@@ -7,7 +7,6 @@ ogImage:
   url: "/assets/blog/guide/aside-browser-setup/cover.png"
 category: guide
 aiAssisted: true
-draft: true
 ---
 
 "AI가 대신 클릭해 준다"는 말을 들으면 뭔가 복잡한 설정이 떠오르죠. 이 글은 그 반대예요.
@@ -124,18 +123,20 @@ Aside는 두뇌를 직접 만들지 않아요. 세 가지 중 하나를 고릅�
 
 ## 방법 2. 내 구독 연결 (추천)
 
-- ChatGPT Plus/Pro, Claude Pro/Max, GitHub Copilot 구독을 연결할 수 있어요.
-- 누르면 해당 서비스 로그인 창이 뜨고, 평소 계정으로 로그인하면 끝이에요.
-- 이미 내는 구독료로 쓰는 거라 추가 비용이 없어요.
-- 연결한 구독의 사용량 표시도 볼 수 있어요.
+- Providers 목록 오른쪽의 **Connect** 버튼을 눌러요. 목록에 처음부터 ChatGPT가 보이지는 않아요.
+- 펼쳐진 메뉴의 **Subscription** 그룹에 ChatGPT, Claude, GitHub Copilot 등이 있어요. 쓰는 걸 고르세요.
+- 해당 서비스 로그인 창이 뜨고, 평소 계정으로 로그인하면 끝이에요.
+- 연결되면 목록에 한 줄 추가돼요. 아래 화면에서는 Claude가 이미 연결된 상태예요.
+- 이미 내는 구독료로 쓰는 거라 추가 비용이 없어요. 연결한 구독의 사용량 표시도 볼 수 있어요.
 
-[Aside 캡처 AS-05: Settings > Models 페이지의 Providers 섹션. ChatGPT·Claude 구독 연결 항목이 강조된 영역]
+![Settings > Models의 Providers 섹션 - 연결된 Claude 행과 Connect 메뉴의 ChatGPT](/assets/blog/guide/aside-browser-setup/AS-05.png)
 
 ## 방법 3. API 키 넣기
 
-- Anthropic, OpenAI, OpenRouter, Google, xAI, Vercel AI Gateway, Cloudflare AI Gateway를 넣을 수 있어요.
+- 같은 Connect 메뉴의 **API** 그룹에 Anthropic, OpenAI, Google, OpenRouter 등 열 곳 넘게 있어요.
 - 쓴 만큼 내는 방식이라 자주 돌릴 분에게 맞아요.
 - 넣은 뒤에는 공급자 메뉴에서 수정하거나 끊을 수 있어요.
+- 맨 아래 **Local** 그룹에는 LM Studio와 Ollama가 있어요. 내 컴퓨터에서 모델을 돌리는 분만 해당돼요.
 
 **어떤 모델을 쓸지 정하는 곳**은 같은 페이지의 **Task models** 섹션이에요. Default, Fast, Standard, Deep, Visual, Image generation 여섯 칸이 있는데 처음엔 **Default model**만 신경 쓰면 돼요. 목록에서 가장 최신 모델을 고르면 돼요. 2026년 9월 초에 나온 **GPT-6 Astra**는 브라우저 조작과 긴 작업에 특히 강하니, 목록에 보이면 그걸 고르세요.
 
@@ -182,7 +183,9 @@ Aside는 두뇌를 직접 만들지 않아요. 세 가지 중 하나를 고릅�
 - 로그인이 풀려 있거나 인증 화면이 나오면 멈추고 알려 줘.
 ```
 
-[Aside 캡처 AS-06: 사이드 패널 입력창에 위 프롬프트가 입력된 상태. 입력창 아래 권한 모드 드롭다운이 강조된 화면]
+![사이드 패널 입력창에 프롬프트를 넣은 상태 - 아래 줄의 권한 모드 드롭다운](/assets/blog/guide/aside-browser-setup/AS-06.png)
+
+입력창 아래 줄은 왼쪽부터 프로젝트, 권한 모드, 오른쪽에 모델과 추론 강도예요. 위 화면은 제 설정이라 **Full access**로 되어 있는데, 따라 하실 때는 이걸 눌러 **Guard**로 바꿔 두세요.
 
 ## 실행 중에 보이는 것
 
