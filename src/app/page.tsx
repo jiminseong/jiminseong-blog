@@ -22,6 +22,7 @@ export default function Index() {
           date={heroPost.date}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
+          aiAssisted={heroPost.aiAssisted}
         />
 
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}

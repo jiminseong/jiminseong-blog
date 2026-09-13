@@ -1,6 +1,7 @@
 import CoverImage from "@/app/_components/cover-image";
 import Link from "next/link";
 import DateFormatter from "./date-formatter";
+import { AiBadge } from "./ai-badge";
 
 type Props = {
   title: string;
@@ -8,9 +9,10 @@ type Props = {
   date: string;
   excerpt: string;
   slug: string;
+  aiAssisted?: boolean;
 };
 
-export function HeroPost({ title, coverImage, date, excerpt, slug }: Props) {
+export function HeroPost({ title, coverImage, date, excerpt, slug, aiAssisted }: Props) {
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -23,8 +25,9 @@ export function HeroPost({ title, coverImage, date, excerpt, slug }: Props) {
               {title}
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
+          <div className="mb-4 md:mb-0 text-lg flex flex-wrap items-center gap-3">
             <DateFormatter dateString={date} />
+            {aiAssisted && <AiBadge />}
           </div>
         </div>
         <div>

@@ -7,6 +7,7 @@ import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { AiDisclosure } from "@/app/_components/ai-disclosure";
 import Comments from "@/app/_components/comments";
 
 export default async function Post(props: Params) {
@@ -26,8 +27,14 @@ export default async function Post(props: Params) {
       <Container>
         <Header />
         <article className="mb-32">
-          <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            aiAssisted={post.aiAssisted}
+          />
           <PostBody content={content} />
+          {post.aiAssisted && <AiDisclosure />}
         </article>
         <Comments slug={slug} />
       </Container>
