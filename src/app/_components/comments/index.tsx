@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "./use-session";
 import { useComments } from "./use-comments";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
 import { AuthModal } from "./auth-modal";
+import { publishCommentCount } from "../reading-dock";
 
 type Props = {
   slug: string;
@@ -33,6 +34,11 @@ export default function Comments({ slug }: Props) {
   );
   const totalCount = topLevelCount + replyCount;
 
+  // 하단 읽기 도크가 같은 쿼리를 다시 날리지 않도록 개수만 넘겨준다.
+  useEffect(() => {
+    publishCommentCount(totalCount);
+  }, [totalCount]);
+
   const handleDelete = async (id: string, parentId?: string | null) => {
     try {
       await deleteComment(id, parentId);
@@ -44,7 +50,7 @@ export default function Comments({ slug }: Props) {
   };
 
   return (
-    <section aria-label="댓글" className="mx-auto mt-16 max-w-2xl">
+    <section id="comments" aria-label="댓글" className="mx-auto mt-16 max-w-2xl scroll-mt-8">
       <h2 className="mb-6 text-xl font-semibold text-neutral-900 dark:text-neutral-100">
         댓글{" "}
         {totalCount > 0 && (

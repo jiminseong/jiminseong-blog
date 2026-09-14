@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
 import { ThemeScript } from "./_components/theme-switcher";
+import Footer from "./_components/footer";
 
 import "./globals.css";
 
@@ -41,7 +42,8 @@ export default function RootLayout({
       </head>
       <body className={cn(inter.className, "antialiased")}>
         <ThemeScript />
-        <div className="min-h-screen pb-24 md:pb-32">{children}</div>
+        <div className="min-h-screen">{children}</div>
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
